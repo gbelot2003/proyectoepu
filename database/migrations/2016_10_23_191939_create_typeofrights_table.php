@@ -15,7 +15,7 @@ class CreateTypeofrightsTable extends Migration
     {
         Schema::create('typeofrights', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
