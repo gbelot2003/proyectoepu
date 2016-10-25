@@ -18,6 +18,6 @@ class Recomendation extends Model
 
     public function countries()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class, 'country_id', 'id');
     }
 }

@@ -18,5 +18,5 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-Route::resource('admin/recomendaciones/', 'AdminRecomendacionesController');
-Route::get('api/recomendaciones/search/{term}?', 'ApiRecomendacionesController@search');
+Route::resource('admin/recomendaciones', 'AdminRecomendacionesController');
+Route::resource('api/recomendaciones', 'ApiRecomendacionesController');

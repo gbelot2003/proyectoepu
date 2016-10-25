@@ -12,6 +12,6 @@ class Country extends Model
 
     public function recomendacion()
     {
-        return $this->belongsTo(Recomendation::class);
+        return $this->hasOne(Recomendation::class);
     }
 }

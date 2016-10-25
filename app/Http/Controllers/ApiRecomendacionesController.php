@@ -15,4 +15,10 @@ class ApiRecomendacionesController extends Controller
 
         return $recom;
     }
+
+    public function index()
+    {
+        $recom = Recomendation::with('countries')->paginate(15);
+        return $recom;
+    }
 }

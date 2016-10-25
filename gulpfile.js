@@ -13,15 +13,23 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss');
-    /*mix.scripts(
+    mix.scripts(
+        ['app/recomendaciones.js'],
+        'public/js/recomendaciones.js'
+    );
+
+    mix.scripts(
         ['angular.js',
+         'angular-animate.js',
+         'angular-touch',
          'angular-sanitize.js',
          'angular-resource.js',
+         'ng-bootstrap/ng2-bootstrap.js',
          'satellizer.js',
          'select.js',
          'ngToast.js'
         ],
         'public/js/angular.js'
-    );*/
+    );
 
 });

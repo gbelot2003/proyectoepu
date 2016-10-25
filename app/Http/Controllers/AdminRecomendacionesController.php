@@ -17,7 +17,7 @@ class AdminRecomendacionesController extends Controller
     public function index()
     {
         $recomendaciones = Recomendation::paginate(15);
-        return View('admin.recomendations.index', compact('recomendaciones'));
+        return View('admin.recomendaciones.index', compact('recomendaciones'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AdminRecomendacionesController extends Controller
      */
     public function create()
     {
-        return View('admin.recomendations.create');
+        return View('admin.recomendaciones.create');
     }
 
     /**
