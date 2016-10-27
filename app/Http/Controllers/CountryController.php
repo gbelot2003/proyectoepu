@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class CountryController extends Controller
 {
+
+
+    public function listado($name = null)
+    {
+        if($name == null){
+            $query = Country::take(10)->get();
+        } else {
+            $query = Country::where('name', 'LIKE', '%' . $name . '%')->get();
+        }
+        return $query;
+    }
+
     /**
      * Display a listing of the resource.
      *

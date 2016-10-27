@@ -21,4 +21,22 @@ class ApiRecomendacionesController extends Controller
         $recom = Recomendation::with('countries')->paginate(15);
         return $recom;
     }
+
+    public function edit($id)
+    {
+        $recom = Recomendation::with('countries')->findOrFail($id);
+        return $recom;
+    }
+
+    public function show($id)
+    {
+        $recom = Recomendation::with('countries')->findOrFail($id);
+        return $recom;
+    }
+
+    public function store(Request $request)
+    {
+        return $request;
+    }
+
 }

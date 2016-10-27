@@ -3,7 +3,7 @@
 @section('appt', 'Recom')
 @section('controller', 'RecomendacionesController')
 @section('scripts')
-    <script src="{{ asset('js/recomendaciones.js') }}"></script>
+
 @stop
 @section('content')
 
@@ -21,18 +21,23 @@
     <div class="table-responsive">
         <table class="table table-hover table-bordered">
             <thead>
+
             <tr>
                 <th>Recomendacion</th>
                 <th>País</th>
             </tr>
+
             </thead>
             <tbody>
-            <tr ng-repeat="items in recom">
-                <td><a href="/admin/recomendaciones/create">@{{ items.name }}</a></td>
-                <td>@{{ items.countries.name }}</td>
+                @foreach($recom as $items)
+            <tr>
+                <td><a href="{{ action('AdminRecomendacionesController@edit', $items->id)  }}">{{ $items->name }}</a></td>
+                <td>{{ $items->countries->name }}</td>
             </tr>
+            @endforeach
             </tbody>
         </table>
+        {{ $recom->links() }}
     </div>
     <div>
     </div>

@@ -20,4 +20,9 @@ class Recomendation extends Model
     {
         return $this->belongsTo(Country::class, 'country_id', 'id');
     }
+
+    public function derechos()
+    {
+        return $this->belongsToMany(Right::class);
+    }
 }
