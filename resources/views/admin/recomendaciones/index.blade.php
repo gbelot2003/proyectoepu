@@ -18,6 +18,7 @@
     </form>
     <hr>
 
+    <a href="{{ route('admin.recomendaciones.create') }}" class="btn btn-info"><i class="fa fa-btn fa-plus"></i> Nueva Recomendación</a>
     <div class="table-responsive">
         <table class="table table-hover table-bordered">
             <thead>

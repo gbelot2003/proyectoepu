@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recomendation extends Model
 {
-    public function Rights()
+    public function derechos()
     {
-        return $this->belongsToMany(Rights::class);
+        return $this->belongsToMany(Right::class);
     }
 
     public function institutions()
@@ -21,8 +21,13 @@ class Recomendation extends Model
         return $this->belongsTo(Country::class, 'country_id', 'id');
     }
 
-    public function derechos()
+    public function getInstitutionListAttribute()
     {
-        return $this->belongsToMany(Right::class);
+        return $this->institutions->lists('id')->all();
+    }
+
+    public function getDerechosListAttribute()
+    {
+        return $this->derechos->lists('id')->all();
     }
 }

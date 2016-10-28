@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call('TypeofrightsTableSeeder');
         $this->call('RightsTableSeeder');
         $this->call('InstitutionsTableSeeder');
+        $this->call('RecomendationsTableSeeder');
+        $this->call('InstitutionRecomendationTableSeeder');
+        $this->call('RecomendationRightTableSeeder');
     }
 }

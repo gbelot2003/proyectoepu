@@ -2,7 +2,8 @@
 @section('title', "Editar")
 
 @section('content')
-    <form action="{{ action('AdminRecomendacionesController@update') }}" method="patch">
-        
-    </form>
+    <h2>Edición de Recomendación</h2>
+    {!! Form::model($rec, array('route' => array('admin.recomendaciones.update', $rec->id), 'method' => 'patch')) !!}
+        @include('admin.recomendaciones._form')
+    {!!  Form::close() !!}
 @stop

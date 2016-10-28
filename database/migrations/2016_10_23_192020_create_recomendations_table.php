@@ -38,17 +38,29 @@ class CreateRecomendationsTable extends Migration
         Schema::create('institution_recomendation', function(Blueprint $table)
         {
             $table->integer('institution_id')->unsigned()->index();
-            $table->foreign('institution_id')->references('id')->on('institutions')->onDelete('cascade');
+            $table->foreign('institution_id')
+                ->references('id')
+                ->on('institutions')
+                ->onDelete('cascade');
             $table->integer('recomendation_id')->unsigned()->index();
-            $table->foreign('recomendation_id')->references('id')->on('recomendations')->onDelete('cascade');
+            $table->foreign('recomendation_id')
+                ->references('id')
+                ->on('recomendations')
+                ->onDelete('cascade');
         });
 
         Schema::create('recomendation_right', function(Blueprint $table)
         {
+            $table->integer('right_id')->unsigned()->index();
+            $table->foreign('right_id')
+                ->references('id')
+                ->on('rights')
+                ->onDelete('cascade');
             $table->integer('recomendation_id')->unsigned()->index();
-            $table->foreign('recomendation_id')->references('id')->on('recomendations')->onDelete('cascade');
-            $table->integer('rigth_id')->unsigned()->index();
-            $table->foreign('rigth_id')->references('id')->on('rights')->onDelete('cascade');
+            $table->foreign('recomendation_id')
+                ->references('id')
+                ->on('recomendations')
+                ->onDelete('cascade');
         });
 
     }

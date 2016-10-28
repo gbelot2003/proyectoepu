@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Country;
 use App\Institution;
 use App\Recomendation;
+use App\Right;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -29,7 +30,10 @@ class AdminRecomendacionesController extends Controller
      */
     public function create()
     {
-        return View('admin.recomendaciones.create');
+        $country = Country::lists('name', 'id');
+        $instit = Institution::lists('name', 'id');
+        $right = Right::lists('name', 'id');
+        return View('admin.recomendaciones.create', compact('rec', 'country', 'instit', 'right'));
     }
 
     /**
@@ -64,8 +68,9 @@ class AdminRecomendacionesController extends Controller
     {
         $rec = Recomendation::findOrFail($id);
         $country = Country::lists('name', 'id');
-        $instit = Institution::Lists('name', 'id');
-        return View('admin.recomendaciones.edit', compact('rec', 'country', 'instit'));
+        $instit = Institution::lists('name', 'id');
+        $right = Right::lists('name', 'id');
+        return View('admin.recomendaciones.edit', compact('rec', 'country', 'instit', 'right'));
     }
 
     /**
