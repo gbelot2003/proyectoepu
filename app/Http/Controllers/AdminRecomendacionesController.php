@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Country;
+use App\Http\Requests\RecomendacionesRequest;
 use App\Institution;
 use App\Recomendation;
 use App\Right;
@@ -39,10 +40,10 @@ class AdminRecomendacionesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param RecomendacionesRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RecomendacionesRequest $request)
     {
         $this->validate($request, [
             'name' => 'required|string',
@@ -85,11 +86,11 @@ class AdminRecomendacionesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param RecomendacionesRequest|Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RecomendacionesRequest $request, $id)
     {
         $recom = Recomendation::findOrFail($id);
         $this->synckRecom($recom, $request->input('institution_list'), $request->input('derechos_list'));
@@ -121,10 +122,10 @@ class AdminRecomendacionesController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param RecomendacionesRequest|Request $request
      * @return static
      */
-    public function createRecomendacion(Request $request)
+    public function createRecomendacion(RecomendacionesRequest $request)
     {
         $recomendacion = Recomendation::create($request->all());
         return $recomendacion;
