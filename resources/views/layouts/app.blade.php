@@ -28,6 +28,7 @@
     @include('partials._nav')
 
     <div class="container">
+        @include('partials._message')
         <div class="row">
             <div class="col-md-12" data-ng-controller="@yield('controller', 'ApppController')">
                 @yield('content')

@@ -158,6 +158,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
