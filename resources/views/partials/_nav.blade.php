@@ -36,9 +36,9 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/admin/recomendaciones') }}"><i class="fa fa-btn fa-folder-open-o"></i>Recomendaciones</a></li>
+                            <li><a href="{{ route('admin.recomendaciones.index') }}"><i class="fa fa-btn fa-folder-open-o"></i>Recomendaciones</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('/admin/recomendaciones') }}"><i class="fa fa-btn fa-user"></i>Usuarios</a></li>
+                            <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-btn fa-user"></i>Usuarios</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,7 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('id', 'DESC')->paginate(10);
+        var_dump($users->all());
+        return View('admin.users.index', compact('users'));
     }
 
     /**

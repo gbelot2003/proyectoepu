@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
 Route::resource('admin/recomendaciones', 'AdminRecomendacionesController');
+Route::resource('admin/users', 'UserController');
 Route::resource('api/recomendaciones', 'ApiRecomendacionesController');
+
+Route::get('/home', 'HomeController@index');
 Route::get('api/paises/listado/{name?}', 'CountryController@listado');
+

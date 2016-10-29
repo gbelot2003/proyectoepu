@@ -1,20 +1,13 @@
 @extends('layouts.app')
+@section('title', 'Recomendaciones | Listado')
 
-@section('appt', 'Recom')
-@section('controller', 'RecomendacionesController')
-@section('scripts')
-
-@stop
 @section('content')
-
     <form class="">
-        <div class="form-group">
-            <label for="buscar" class="control-label">Buscar</label>
-            <div class="">
-                <input type="Buscar" class="form-control" id="buscar" placeholder="Buscar">
-            </div>
+        <div class="form-group has-feedback">
+            <label for="search" class="sr-only">Search</label>
+            <input type="text" class="form-control" name="search" id="search" placeholder="search">
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
         </div>
-        <button type="submit" class="btn-primary btn"> Buscar</button>
     </form>
     <hr>
 
