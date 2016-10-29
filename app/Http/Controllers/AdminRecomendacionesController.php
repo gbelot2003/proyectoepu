@@ -45,15 +45,9 @@ class AdminRecomendacionesController extends Controller
      */
     public function store(RecomendacionesRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|string',
-            'country_id' => 'required',
-            'institution_list'  => 'required|array|min:1',
-            'derechos_list'  => 'required|array|min:1'
-        ]);
-
         $recomendacion = $this->createRecomendacion($request);
         $this->synckRecom($recomendacion, $request->input('institution_list'), $request->input('derechos_list'));
+        flash('La recomendación a sido creada', 'info');
         return redirect('admin/recomendaciones');
     }
 
@@ -95,6 +89,7 @@ class AdminRecomendacionesController extends Controller
         $recom = Recomendation::findOrFail($id);
         $this->synckRecom($recom, $request->input('institution_list'), $request->input('derechos_list'));
         $recom->update($request->all());
+        flash('La recomendación a sido editada', 'info');
         return redirect('admin/recomendaciones');
 
     }
