@@ -3,7 +3,7 @@
 
 @section('content')
     <h2>Edición de Recomendación</h2>
-    {!! Form::model($rec, array('route' => array('admin.recomendaciones.update', $rec->id), 'method' => 'patch')) !!}
+    {!! Form::model($recomendation, array('route' => array('admin.recomendaciones.update', $recomendation->id), 'method' => 'patch')) !!}
         @include('admin.recomendaciones._form')
     {!!  Form::close() !!}
 @stop

@@ -19,7 +19,7 @@ class AdminRecomendacionesController extends Controller
      */
     public function index()
     {
-        $recom = Recomendation::paginate(15);
+        $recom = Recomendation::orderBy('id', 'DESC')->paginate(10);
         return View('admin.recomendaciones.index', compact('recom'));
     }
 
@@ -44,7 +44,16 @@ class AdminRecomendacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+            'country_id' => 'required',
+            'institution_list'  => 'required|array|min:1',
+            'derechos_list'  => 'required|array|min:1'
+        ]);
+
+        $recomendacion = $this->createRecomendacion($request);
+        $this->synckRecom($recomendacion, $request->input('institution_list'), $request->input('derechos_list'));
+        return redirect('admin/recomendaciones');
     }
 
     /**
@@ -66,11 +75,11 @@ class AdminRecomendacionesController extends Controller
      */
     public function edit($id)
     {
-        $rec = Recomendation::findOrFail($id);
+        $recomendation = Recomendation::findOrFail($id);
         $country = Country::lists('name', 'id');
         $instit = Institution::lists('name', 'id');
         $right = Right::lists('name', 'id');
-        return View('admin.recomendaciones.edit', compact('rec', 'country', 'instit', 'right'));
+        return View('admin.recomendaciones.edit', compact('recomendation', 'country', 'instit', 'right'));
     }
 
     /**
@@ -82,7 +91,11 @@ class AdminRecomendacionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $recom = Recomendation::findOrFail($id);
+        $this->synckRecom($recom, $request->input('institution_list'), $request->input('derechos_list'));
+        $recom->update($request->all());
+        return redirect('admin/recomendaciones');
+
     }
 
     /**
@@ -95,4 +108,28 @@ class AdminRecomendacionesController extends Controller
     {
         //
     }
+
+    /**
+     * @param Recomendation $recom
+     * @param array $institution
+     * @param array $derechos
+     */
+    public function synckRecom(Recomendation $recom, array $institution, array $derechos)
+    {
+        $recom->institutions()->sync($institution);
+        $recom->derechos()->sync($derechos);
+    }
+
+    /**
+     * @param Request $request
+     * @return static
+     */
+    public function createRecomendacion(Request $request)
+    {
+        $recomendacion = Recomendation::create($request->all());
+        return $recomendacion;
+    }
+
+
+
 }

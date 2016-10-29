@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recomendation extends Model
 {
+
+    protected $fillable = ['name', 'country_id'];
+
     public function derechos()
     {
         return $this->belongsToMany(Right::class);
