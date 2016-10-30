@@ -30,7 +30,9 @@
                     <td><a href="{{ action('UserController@edit', $user->id)  }}">{{ $user->name }}</a></td>
                     <td>{{ $user->email }}</td>
                     <td>
-
+                        @foreach($user->roles as $roles)
+                            <li>{{ $roles->name }}</li>
+                        @endforeach
                     </td>
 
                     <td>
