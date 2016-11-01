@@ -20,47 +20,38 @@ class RolesTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'name' => 'Super Admin',
-                'display_name' => 'super',
-                'description' => 'Super Administrador del Sistema',
-                'created_at' => '2016-10-29 00:56:21',
-                'updated_at' => '2016-10-29 00:56:22',
+                'name' => 'super',
+                'display_name' => 'Super Admin',
+                'description' => 'Super administrador',
+                'created_at' => '2016-11-01 16:45:13',
+                'updated_at' => '2016-11-01 16:45:15',
             ),
             1 => 
             array (
                 'id' => 2,
-                'name' => 'Administrador',
-                'display_name' => 'admin',
-                'description' => 'Administrador del Sistema',
-                'created_at' => '2016-10-29 00:56:47',
-                'updated_at' => '2016-10-29 00:56:49',
+                'name' => 'admin',
+                'display_name' => 'Administrador',
+                'description' => 'Administrador',
+                'created_at' => '2016-11-01 16:45:41',
+                'updated_at' => '2016-11-01 16:45:42',
             ),
             2 => 
             array (
                 'id' => 3,
-                'name' => 'Editor',
-                'display_name' => 'editor',
-                'description' => 'Editor del Sistema',
-                'created_at' => '2016-10-29 00:57:37',
-                'updated_at' => '2016-10-29 00:57:38',
+                'name' => 'editor',
+                'display_name' => 'Editor',
+                'description' => 'Editor de Noticias',
+                'created_at' => '2016-11-01 16:46:02',
+                'updated_at' => '2016-11-01 16:46:05',
             ),
             3 => 
             array (
                 'id' => 4,
-                'name' => 'Miembro de Organización',
-                'display_name' => 'organ',
-                'description' => 'Miebro de Organización aliada',
-                'created_at' => '2016-10-29 00:58:45',
-                'updated_at' => '2016-10-29 00:58:48',
-            ),
-            4 => 
-            array (
-                'id' => 5,
-                'name' => 'Usuario Registrado',
-                'display_name' => 'registrado',
-                'description' => 'Usuario Registrado',
-                'created_at' => '2016-10-29 00:59:20',
-                'updated_at' => '2016-10-29 00:59:23',
+                'name' => 'organiza',
+                'display_name' => 'Organizacion',
+                'description' => 'Pertenece a Organizacion',
+                'created_at' => '2016-11-01 16:46:27',
+                'updated_at' => '2016-11-01 16:46:28',
             ),
         ));
         

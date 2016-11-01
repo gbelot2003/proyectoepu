@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\User;
 class UsersTableSeeder extends Seeder
 {
 
@@ -29,7 +29,8 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => '2016-10-24 07:58:14',
             ),
         ));
-        
-        
+
+        $user = new User();
+        $user = User::find(1); $user->attachRole(1);
     }
 }

@@ -19,6 +19,7 @@ class CreateRecomendationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('country_id')->unsigned()->index();
+            $table->integer('total');
             $table->timestamps();
         });
 
