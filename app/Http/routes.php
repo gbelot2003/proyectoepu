@@ -20,6 +20,7 @@ Route::auth();
 Route::resource('admin/recomendaciones', 'AdminRecomendacionesController');
 Route::resource('admin/users', 'UserController');
 Route::resource('api/recomendaciones', 'ApiRecomendacionesController');
+Route::resource('admin/organizaciones', 'OrganizacionesController');
 
 Route::get('/home', 'HomeController@index');
 Route::get('api/paises/listado/{name?}', 'CountryController@listado');

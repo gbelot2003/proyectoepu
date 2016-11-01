@@ -37,8 +37,11 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ route('admin.recomendaciones.index') }}"><i class="fa fa-btn fa-folder-open-o"></i>Recomendaciones</a></li>
+                            <li><a href="{{ route('admin.recomendaciones.index') }}"><i class="fa fa-btn fa-folder-open-o"></i>Articulos</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-btn fa-user"></i>Usuarios</a></li>
+                            <li><a href="{{ route('admin.organizaciones.index') }}"><i class="fa fa-btn fa-users"></i>Organizaciones</li>
+                            <li><a href="{{ route('admin.organizaciones.index') }}"><i class="fa fa-btn fa-users"></i>Documentos</li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>

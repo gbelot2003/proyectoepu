@@ -10,7 +10,7 @@
         </div>
     </form>
     <hr>
-    <a href="{{ route('admin.recomendaciones.create') }}" class="btn btn-info"><i class="fa fa-btn fa-user"></i>Registrar Usuario</a>
+    <a href="{{ route('admin.users.create') }}" class="btn btn-info"><i class="fa fa-btn fa-user"></i>Registrar Usuario</a>
     <hr>
     <div class="table-responsive">
         <table class="table table-hover table-bordered">
@@ -46,7 +46,7 @@
             @endforeach
             </tbody>
         </table>
-        {{--{{ $recom->links() }}--}}
+        {{ $users->links() }}
     </div>
     <div>
     </div>

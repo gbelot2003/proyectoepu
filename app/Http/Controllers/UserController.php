@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\User;
+use App\Http\Requests\UserFormRequest;
+use App\Organizacion;
+use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -16,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = \App\User::all();
+        $users = \App\User::paginate(15);
         return View('admin.users.index', compact('users'));
     }
 
@@ -27,7 +30,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::lists('name', 'id');
+        $organiza = Organizacion::lists('name', 'id');
+        $estado = [
+            1 => 'Activo',
+            2 => 'Desactivado'
+        ];
+        return View('admin.users.create', compact('organiza', 'roles', 'estado'));
     }
 
     /**
@@ -36,7 +45,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
         //
     }
@@ -60,7 +69,15 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $roles = Role::lists('name', 'id');
+        $organiza = Organizacion::lists('name', 'id');
+        $estado = [
+            1 => 'Activo',
+            2 => 'Desactivado'
+        ];
+        return View('admin.users.edit', compact('user', 'roles', 'organiza', 'estado'));
+
     }
 
     /**
@@ -70,9 +87,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if($request->input('password')):
+            $request['password'] = bcrypt($request->input('password'));
+            unset($request['password_confirmation']);
+        else:
+            unset($request['password']);
+            unset($request['password_confirmation']);
+        endif;
+
+        $user->update($request->all());
+
+        $user->roles()->sync($request->input('roles_lists'));
+        flash('El usuario a sido editada', 'info');
+        return redirect('admin/users');
     }
 
     /**

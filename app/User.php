@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'status', 'organizacion_id'
+        'name', 'email', 'password', 'status', 'organizacion_id', 'password_confirmation'
     ];
 
     /**
@@ -28,10 +28,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
-    public function rol()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function organizacion()
     {
-        return $this->belongsToMany(Role::class, 'role_id', 'id');
+        return $this->belongsTo(Organizacion::class, 'organizacion_id', 'id');
+    }
+
+    /**
+     * Devolver listado de roles por usuario
+     * @return mixed
+     */
+    public function getRolesListsAttribute()
+    {
+        return $this->roles->lists('id')->all();
     }
 
 }

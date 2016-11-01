@@ -19048,6 +19048,12 @@ S2.define('jquery.select2',[
         minimumResultsForSearch: 1
     });
 
+    $("#roles_list").select2({
+        theme: "bootstrap",
+        multiple: true,
+        minimumResultsForSearch: 1
+    });
+
     $("#country").select2({
         theme: "bootstrap"
     });

@@ -12,7 +12,12 @@ class CreateOrganizacionsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('organizacions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->text('details');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +27,6 @@ class CreateOrganizacionsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('organizacions');
     }
 }
