@@ -8,7 +8,9 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                    Your Application's Landing Page.
+                    @foreach($type as $type)
+                        <li> {{ $type->name }} - {{ $type->CountRel }}</li>
+                    @endforeach
                 </div>
             </div>
         </div>

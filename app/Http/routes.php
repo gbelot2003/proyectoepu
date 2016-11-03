@@ -20,6 +20,12 @@ Route::resource('admin/users', 'UserController');
 Route::resource('api/recomendaciones', 'ApiRecomendacionesController');
 Route::resource('admin/organizaciones', 'OrganizacionesController');
 
+Route::get('recomendaciones/califecaciones/{id}', 'CalificacionController@califica');
+Route::resource('recomendaciones/califecaciones', 'CalificacionController');
+
+
 Route::get('/home', 'HomeController@index');
+Route::get('recomendaciones', 'RecomendationController@index');
+Route::get('recomendaciones/show/{id}', 'RecomendationController@show');
 Route::get('api/paises/listado/{name?}', 'CountryController@listado');
 

@@ -19,7 +19,7 @@ class CreateRecomendationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('country_id')->unsigned()->index();
-            $table->integer('total');
+            $table->float('total')->default(0);
             $table->timestamps();
         });
 
@@ -31,7 +31,7 @@ class CreateRecomendationsTable extends Migration
 
         Schema::create('rights', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('typeofright')->unsigned()->index();
+            $table->integer('typeofright_id')->unsigned()->index();
             $table->string('name');
                                                                                                                                     });
 

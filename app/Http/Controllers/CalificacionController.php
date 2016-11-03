@@ -2,12 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Calificacion;
+use App\Http\Requests\CalificacionesRequest;
+use App\Recomendation;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class CalificacionController extends Controller
 {
+
+
+    public function califica($id)
+    {
+        $califica = [
+            '1' => 1,
+            '2' => 2,
+            '3' => 3,
+            '4' => 4,
+            '5' => 5,
+        ];
+
+        $recom = Recomendation::findOrFail($id);
+        return View('calificaciones.create', compact('recom', 'califica'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,30 +39,26 @@ class CalificacionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param CalificacionesRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CalificacionesRequest $request)
     {
-        //
+        $request['user_id'] = Auth::id();
+        $document = $request['documento']->getClientOriginalname();
+        $request['documento_url'] = $document;
+        $request['documento']->move(base_path() . '/public/documents/', $document);
+        Calificacion::create($request->all());
+        return redirect('recomendaciones');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -53,7 +69,7 @@ class CalificacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -64,8 +80,8 @@ class CalificacionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -73,14 +89,4 @@ class CalificacionController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

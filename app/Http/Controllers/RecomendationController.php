@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Recomendation;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class RecomendationController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,8 @@ class RecomendationController extends Controller
      */
     public function index()
     {
-        //
+        $recom = Recomendation::orderBy('id', 'DESC')->paginate(9);
+        return View('test.recomendaciones.index', compact('recom'));
     }
 
     /**
@@ -47,7 +51,8 @@ class RecomendationController extends Controller
      */
     public function show($id)
     {
-        //
+        $recom = Recomendation::findOrFail($id);
+        return View('test.recomendaciones.show', compact('recom'));
     }
 
     /**

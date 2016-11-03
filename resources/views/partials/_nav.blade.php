@@ -20,6 +20,8 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Inicio</a></li>
+                <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
+
             </ul>
 
             <!-- Right Side Of Navbar -->

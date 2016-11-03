@@ -6953,4 +6953,18 @@ button.close {
   left: initial;
   font-size: 14px; }
 
+.calificacion {
+  font-size: 5rem;
+  display: block;
+  text-align: center; }
+
+.red {
+  color: red; }
+
+.orange {
+  color: orange; }
+
+.green {
+  color: green; }
+
 /*# sourceMappingURL=app.css.map */

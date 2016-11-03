@@ -10,11 +10,18 @@ class Right extends Model
 
     public function type()
     {
-        return $this->hasOne(Typeofright::class);
+        return $this->BelongsTo(Typeofright::class);
     }
 
     public function recomendacion()
     {
         return $this->belongsToMany(Recomendation::class);
     }
+
+    public function getCountRecomAttibute()
+    {
+        return Recomendation::where('recomendacion_id', '=', $this->id)->get()->count();
+    }
+
+
 }
