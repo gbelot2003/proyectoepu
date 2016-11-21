@@ -61,7 +61,7 @@
             <tr>
                 <th>Documento de antecedente para calificar</th>
                 <td>
-                    <a href="public/documents/{{ $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a>
+                    <a href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a>
                 </td>
             </tr>
     </table>
