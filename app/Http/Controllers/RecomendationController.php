@@ -19,7 +19,7 @@ class RecomendationController extends Controller
     public function index()
     {
         $recom = Recomendation::orderBy('id', 'DESC')->paginate(9);
-        return View('test.recomendaciones.index', compact('recom'));
+        return View('front.recomendaciones.index', compact('recom'));
     }
 
     /**
@@ -52,7 +52,7 @@ class RecomendationController extends Controller
     public function show($id)
     {
         $recom = Recomendation::findOrFail($id);
-        return View('test.recomendaciones.show', compact('recom'));
+        return View('front.recomendaciones.show', compact('recom'));
     }
 
     /**
