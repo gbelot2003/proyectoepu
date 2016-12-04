@@ -9,6 +9,7 @@
                 <div class="panel-heading">{{ $item->name }}</div>
                 <div class="panel-body">
                     <div class="row">
+
                         <div class="col-md-8">
                             <table class="table">
                                 <tr>
@@ -25,6 +26,7 @@
                                 </tr>
                             </table>
                         </div>
+
                         <div class="col-md-4">
                             <span class="{{ $item->califica }} calificacion">{{ round($item->calulo, 1) }}</span>
                         </div>

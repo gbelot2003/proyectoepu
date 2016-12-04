@@ -160,6 +160,7 @@ return [
         Orangehill\Iseed\IseedServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
 
 
     ],
@@ -210,6 +211,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustServiceProvider::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
     ],
 

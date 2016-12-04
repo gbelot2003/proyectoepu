@@ -68,6 +68,18 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                {!! captcha_img() !!}
+                                <input type="text" class="form-control" name="captcha" placeholder="captcha">
+                                @if ($errors->has('captcha'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('captcha') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>
