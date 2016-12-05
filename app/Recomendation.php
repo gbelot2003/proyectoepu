@@ -68,6 +68,7 @@ class Recomendation extends Model
             return 0;
         }else{
             $promedio = ($this->SumCalifica / $this->countCalifica);
+            //$promedio = $this->SumCalifica;
             return $promedio;
         }
     }

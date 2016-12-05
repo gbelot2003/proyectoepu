@@ -12,12 +12,22 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss')
+/*    mix.sass('app.scss')
         .scripts([
         'jquery.js',
         'bootstrap.js',
         'select2.full.js',
         'app/scripts.js'
-    ], 'public/js/all.js');
+    ], 'public/js/all.js');*/
+
+    mix.sass('material/materialize.scss')
+        .scripts([
+            'jquery.js',
+            'bootstrap.js',
+            'select2.full.js',
+            'materialize/materialize.js'
+        ], 'public/js/material.js');
 
 });
+
+

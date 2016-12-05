@@ -10,7 +10,6 @@ use App\Http\Requests;
 class RecomendationController extends Controller
 {
 
-
     /**
      * Display a listing of the resource.
      *
