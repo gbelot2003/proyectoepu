@@ -8,11 +8,13 @@
                         <div class="col s12 text-center">
                             <span class="{{ $item->califica }} calificacion">{{ round($item->calulo, 1) }}</span>
                             <div class="center-align">
+
                                 @if (!Auth::guest())
                                     @if (Auth::user()->hasRole(['super', 'admin', 'organiza']))
                                         <a class="btn red white-text waves-effect" href="{{ action('CalificacionController@califica', $item->id) }}">Calificar</a>
                                     @endif
                                 @endif
+
                             </div>
                         </div>
                         <div class="col s12">
@@ -23,7 +25,7 @@
                                 </tr>
                                 <tr>
                                     <th>Tipo:</th>
-                                    <td style="text-align: left">
+                                    <td>
                                         @foreach($item->derechos as $type)
                                             <div style="font-size: 0.6rem" class="chip">{{$type->name }}</div>
                                         @endforeach

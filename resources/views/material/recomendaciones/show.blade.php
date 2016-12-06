@@ -54,6 +54,13 @@
                             <p>{{ $calificacion->details }}</p>
                         </div>
                         <div class="organizacion-file col s12">
+                            @if (!Auth::guest())
+                                @if (Auth::user()->hasRole(['super', 'admin', 'organiza']))
+                                    <a href="{{ action('CalificacionController@edit', $calificacion->id) }}">Editar</a><br>
+                                @endif
+                            @endif
+
+
                             <span style="font-weight: bold">Documento de antecedente :</span>
                             <a class="" href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a>
                         </div>

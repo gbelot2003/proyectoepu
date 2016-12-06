@@ -14,17 +14,23 @@ class CalificacionController extends Controller
 {
 
 
+
     public function califica($id)
     {
-        $califica = [
-            '1' => 1,
-            '2' => 2,
-            '3' => 3,
-            '4' => 4,
-            '5' => 5,
-        ];
+
+        $user = Auth::user()->id;
+        $calificaciones = Calificacion::where('user_id', '=', $user)->where('recomendacion_id', '=', $id)->get();
+        if($calificaciones->count()){
+            flash('Ya has calificado esta recomendación en este periodo', 'info');
+            return redirect()->back();
+        }
+
 
         $recom = Recomendation::findOrFail($id);
+
+        $califica = [
+            '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
+        ];
         return View('material.calificaciones.create', compact('recom', 'califica'));
     }
 
@@ -74,7 +80,13 @@ class CalificacionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $calificacion = Calificacion::findOrFail($id);
+        $recom = Recomendation::findOrFail($id);
+
+        $califica = [
+            '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
+        ];
+        return View('material.calificaciones.edit', compact('recom', 'califica', 'calificacion'));
     }
 
     /**
