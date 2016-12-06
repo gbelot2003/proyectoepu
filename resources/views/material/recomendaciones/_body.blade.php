@@ -5,7 +5,17 @@
                 <div class="title">{{ $item->name }}</div>
                 <div class="body">
                     <div class="row">
-                        <div class="col s7">
+                        <div class="col s12 text-center">
+                            <span class="{{ $item->califica }} calificacion">{{ round($item->calulo, 1) }}</span>
+                            <div class="center-align">
+                                @if (!Auth::guest())
+                                    @if (Auth::user()->hasRole(['super', 'admin', 'organiza']))
+                                        <a class="btn red white-text waves-effect" href="{{ action('CalificacionController@califica', $item->id) }}">Calificar</a>
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col s12">
                             <table class="bordered">
                                 <tr>
                                     <th>País:</th>
@@ -13,24 +23,16 @@
                                 </tr>
                                 <tr>
                                     <th>Tipo:</th>
-                                    <td>
-                                        <ul>
-                                            @foreach($item->derechos as $type)
-                                                <li style="list-style: circle">{{ $type->name }}</li>
-                                            @endforeach
-                                        </ul>
+                                    <td style="text-align: left">
+                                        @foreach($item->derechos as $type)
+                                            <div style="font-size: 0.6rem" class="chip">{{$type->name }}</div>
+                                        @endforeach
+
                                     </td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col s5">
-                            <span class="{{ $item->califica }} calificacion">{{ round($item->calulo, 1) }}</span>
-                            @if (!Auth::guest())
-                                @if (Auth::user()->hasRole(['super', 'admin', 'organiza']))
-                                    <a class="btn red white-text waves-effect" href="{{ action('CalificacionController@califica', $item->id) }}">Calificar</a>
-                                @endif
-                            @endif
-                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col m12">
