@@ -23,7 +23,8 @@ class RecomendationController extends Controller
         $recom = Recomendation::orderBy('id', 'DESC')->paginate(9);
         $pais = Country::all();
         $tipo = Right::all();
-        return View('material.recomendaciones.index', compact('recom', 'pais', 'tipo'));
+        $search = false;
+        return View('material.recomendaciones.index', compact('recom', 'pais', 'tipo', 'search'));
     }
 
 
@@ -36,7 +37,7 @@ class RecomendationController extends Controller
     public function show($id)
     {
         $recom = Recomendation::findOrFail($id);
-        return View('front.recomendaciones.show', compact('recom'));
+        return View('material.recomendaciones.show', compact('recom'));
     }
 
     /**
@@ -88,7 +89,8 @@ class RecomendationController extends Controller
 
         $pais = Country::all();
         $tipo = Right::all();
-        return View('material.recomendaciones.search', compact('recom', 'pais', 'tipo', 'request'));
+        $search = true;
+        return View('material.recomendaciones.search', compact('recom', 'pais', 'tipo', 'request', 'search'));
     }
 
 }

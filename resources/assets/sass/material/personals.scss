@@ -21,3 +21,9 @@
 .green {
   color: green;
 }
+
+.organizacion-name, .organizacion-calificacion,
+.organizacion-body, .organizacion-file{
+  outline: 1px solid darkgray;
+  padding: 0.5rem !important;
+}
