@@ -2,37 +2,47 @@
 @section('title', 'Recomendaciones')
 
 @section('content')
+
     <div class="row">
         <div class="col m12">
             <h3>Listado de recomendaciones EPU</h3>
         </div>
     </div>
-    <div class="row">
-        <div class="input-field col s12 m3">
-            <input id="first_name" type="text" class="validate">
-            <label for="first_name">Recomendacion</label>
-        </div>
+
+    {!! Form::open(['action' => 'RecomendationController@search']) !!}
+
+        <div class="row">
+            <div class="input-field col s12 m3">
+                <input id="first_name" name="name" type="text" class="validate">
+                <label for="first_name">Recomendacion</label>
+            </div>
+
+            <div class="input-field col s6 m2">
+                <select id="pais" name="pais" class="select2">
+                    <option value="" disabled selected>Seleccione el País</option>
+                    @foreach($pais as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+                <label>País</label>
+            </div>
+            <div class="input-field col s6 m3 ">
+                <select id="tipo" name="tipo" class="select2">.
+                    <option value="" disabled selected>Tipo de derecho</option>
+                @foreach($tipo as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+                <label>Típo</label>
+            </div>
 
 
-        <div class="input-field col s6 m2">
-            <select id="pais" class="select2">
-                <option value="0">N/A</option>
-                @foreach($pais as $item)
-                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                @endforeach
-            </select>
-            <label>País</label>
+            <div class="col m12">
+                <input type="submit" class="btn">
+                <hr>
+            </div>
         </div>
-        <div class="input-field col s6 m3">
-            <select id="tipo" class="select2">
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
-            <label>Típo</label>
-        </div>
-    </div>
-
+    {!! Form::close() !!}
 
         @foreach($recom->chunk(3) as $mItem)
             <div class="row">
@@ -45,7 +55,7 @@
                                     <table class="bordered">
                                         <tr>
                                             <th>País:</th>
-                                            <td><a href="#">{{ $item->countries->name }}</a></td>
+                                            <td>{{ $item->countries->name }}</td>
                                         </tr>
                                         <tr>
                                             <th>Tipo:</th>
@@ -63,9 +73,15 @@
                                     <span class="{{ $item->califica }} calificacion">{{ round($item->calulo, 1) }}</span>
                                     @if (!Auth::guest())
                                         @if (Auth::user()->hasRole(['super', 'admin', 'organiza']))
-                                            <a class="btn btn-info" href="{{ action('CalificacionController@califica', $item->id) }}">Calificar</a>
+                                            <a class="btn red white-text waves-effect" href="{{ action('CalificacionController@califica', $item->id) }}">Calificar</a>
                                         @endif
                                     @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col m12">
+                                    <hr>
+                                    <a class="btn blue waves-effect waves-light white-text" href="#">Ver detalles..</a>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,7 @@
     <div class="valign-wrapper">
         <div class="valign">
             <h2>Calificar</h2>
-            <h3>{{ $recom->name }}</h3>
+            <h5>{{ $recom->name }}</h5>
         </div>
     </div>
 
