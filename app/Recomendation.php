@@ -76,13 +76,13 @@ class Recomendation extends Model
     public function getCalificaAttribute()
     {
         if($this->calulo < 3 ):
-            $color = 'red';
+            $color = 'red-text';
         elseif($this->calulo < 4):
-            $color = 'orange';
+            $color = 'orange-text';
         elseif($this->calulo > 4):
-            $color = 'green';
+            $color = 'green-text';
         else:
-            $color = 'green';
+            $color = 'green-text';
         endif;
 
         return $color;

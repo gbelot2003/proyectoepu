@@ -12,6 +12,6 @@ class PagesController extends Controller
     public function index()
     {
         $type = Typeofright::all();
-        return View('welcome', compact('type'));
+        return View('material.pages.welcome', compact('type'));
     }
 }

@@ -25,7 +25,7 @@ class CalificacionController extends Controller
         ];
 
         $recom = Recomendation::findOrFail($id);
-        return View('calificaciones.create', compact('recom', 'califica'));
+        return View('material.calificaciones.create', compact('recom', 'califica'));
     }
 
     /**

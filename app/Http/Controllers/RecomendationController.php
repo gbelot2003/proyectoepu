@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use App\Recomendation;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,8 @@ class RecomendationController extends Controller
     public function index()
     {
         $recom = Recomendation::orderBy('id', 'DESC')->paginate(9);
-        return View('front.recomendaciones.index', compact('recom'));
+        $pais = Country::all();
+        return View('material.recomendaciones.index', compact('recom', 'pais'));
     }
 
     /**

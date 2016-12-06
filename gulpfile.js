@@ -25,7 +25,8 @@ elixir(function(mix) {
             'jquery.js',
             'bootstrap.js',
             'select2.full.js',
-            'materialize/materialize.js'
+            'materialize/materialize.js',
+            'materialize/script.js'
         ], 'public/js/material.js');
 
 });

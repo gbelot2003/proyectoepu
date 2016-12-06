@@ -12,6 +12,7 @@
 @import "components/normalize";
 
 // components
+
 @import "components/global";
 @import "components/icons-material-design";
 @import "components/grid";
@@ -38,3 +39,5 @@
 @import "components/date_picker/default";
 @import "components/date_picker/default.date";
 @import "components/date_picker/default.time";
+@import "select2-materialize";
+@import "personals";
