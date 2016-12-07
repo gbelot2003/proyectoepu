@@ -13,6 +13,13 @@ use App\Http\Requests;
 
 class AdminRecomendacionesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *

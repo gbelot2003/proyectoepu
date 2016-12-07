@@ -1,13 +1,33 @@
 
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="{{ route('admin.recomendaciones.index') }}"><i class="fa fa-btn fa-folder-open-o"></i>Recomendaciones</a></li>
-    <li><a href="{{ route('admin.recomendaciones.index') }}"><i class="fa fa-btn fa-folder-open-o"></i>Articulos</a></li>
+
+    @if (!Auth::guest())
+        @if(Auth::user()->hasRole(['super', 'admin', 'editor']))
+             <li><a href="{{ route('admin.recomendaciones.index') }}"><i class="fa fa-btn fa-folder-open-o"></i>Articulos</a></li>
+        @endif
+    @endif
+
     <li role="separator" class="divider"></li>
-    <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-btn fa-user"></i>Usuarios</a></li>
-    <li><a href="{{ route('admin.organizaciones.index') }}"><i class="fa fa-btn fa-users"></i>Organizaciones</li>
-    <li><a href="{{ route('admin.organizaciones.index') }}"><i class="fa fa-btn fa-users"></i>Documentos</li>
+    @if (!Auth::guest())
+        @if(Auth::user()->hasRole(['super', 'admin']))
+            <li><a href="{{ route('admin.recomendaciones.index') }}"><i class="fa fa-btn fa-folder-open-o"></i>Recomendaciones</a></li>
+            <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-btn fa-user"></i>Usuarios</a></li>
+        @endif
+    @endif
+
+    @if(!Auth::guest())
+       @if(Auth::user()->hasRole(['super', 'admin', 'editor']))
+            <li><a href="{{ route('admin.organizaciones.index') }}"><i class="fa fa-btn fa-users"></i>Organizaciones</li>
+            <li><a href="{{ route('admin.organizaciones.index') }}"><i class="fa fa-btn fa-users"></i>Documentos</li>
+       @endif
+    @endif
+
+
+
     <li role="separator" class="divider"></li>
+
     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+
 </ul>
 
 <nav>

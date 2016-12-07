@@ -24,6 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('material.page.home');
+        return view('material.pages.home');
     }
 }

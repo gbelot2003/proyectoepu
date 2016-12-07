@@ -9,6 +9,14 @@ use App\Http\Requests;
 
 class ApiRecomendacionesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
+
+
     public function search($term = null)
     {
         $recom = Recomendation::all();
