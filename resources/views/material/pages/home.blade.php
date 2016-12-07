@@ -19,7 +19,7 @@
                         </a>
 
                         <a href="#!" class="collection-item"><span class="badge">
-                                @foreach(Auth()->user()->roles() as $rol)
+                                @foreach(Auth()->user()->roles as $rol)
                                     {{ $rol->name }}
                                 @endforeach
                             </span>

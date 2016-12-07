@@ -84,10 +84,10 @@
                     @if (Auth::guest())
 
                         <span class="login-link">
-                            <a href="login" class="waves-effect btn-flat small-btn dialog-trigger">Login</a>
+                            <a href="/login" class="waves-effect btn-flat small-btn dialog-trigger">Login</a>
                         </span>
                         <span class="login-link">
-                            <a href="register" class="waves-effect btn-flat small-btn">Registrarse</a>
+                            <a href="/register" class="waves-effect btn-flat small-btn">Registrarse</a>
                         </span>
                     @else
                             <!-- Dropdown Trigger -->

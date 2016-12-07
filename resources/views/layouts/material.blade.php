@@ -25,6 +25,7 @@
 
 <!--Import jQuery before materialize.js-->
 <script src="{{ asset('js/material.js') }}" ></script>
+<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 @yield('scripts')
 
 </body>
