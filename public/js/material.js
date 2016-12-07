@@ -26826,8 +26826,6 @@ Picker.extend( 'pickadate', DatePicker )
         );
         $('select.califica').material_select();
 
-       // $('select').material_select();
-
         $(".select2").select2();
 
         $("#institucion").select2({
@@ -26852,5 +26850,12 @@ Picker.extend( 'pickadate', DatePicker )
 
         $('.chips').material_chip();
 
+        $('.button-collapse').sideNav({
+                    menuWidth: 300, // Default is 240
+                    edge: 'right', // Choose the horizontal origin
+                    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                    draggable: true // Choose whether you can drag to open on touch screens
+            }
+        );
 }());
 //# sourceMappingURL=material.js.map

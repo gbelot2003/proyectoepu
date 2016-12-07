@@ -12,7 +12,7 @@
 
 <body>
 <!-- Dropdown Structure -->
-@include('partials.material._nav')
+@include('partials.material._nav2')
 <div class="container">
     @include('partials._message')
     <div class="row">

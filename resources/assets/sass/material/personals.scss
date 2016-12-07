@@ -27,3 +27,54 @@
   outline: 1px solid darkgray;
   padding: 0.5rem !important;
 }
+
+#header .button-collapse-wrap {
+  float: left;
+  height: 56px;
+  margin: -16px 0 -16px -10px;
+  padding: 16px 0 16px 10px;
+  overflow: hidden;
+}
+
+#mainLogo {
+  opacity: 1;
+  position: absolute;
+  transition: opacity .2s;
+}
+
+#mainLogo-small {
+  opacity: 0;
+  float: left;
+  position: absolute;
+  margin-top: -2px;
+  transition: opacity .2s;
+}
+
+#header .user-links .login-link {
+  border-right: 1px solid rgba(0,0,0,0.2);
+  margin-right: 6px;
+  padding-right: 6px;
+}
+#header .user-links a, #header .user-links span {
+  color: inherit;
+}
+
+
+@media only screen and (min-width: 993px){
+  .row .col.l12, .row .l12.card-wrap {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+#header #nav {
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  position: relative;
+  margin-top: 10px;
+  height: 36px;
+  line-height: normal;
+}
