@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Calificacion;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('material.pages.home');
+        $califica = Calificacion::where('user_id', '=' , Auth::user()->id)->get();
+
+        return view('material.pages.home', compact('califica'));
     }
 }

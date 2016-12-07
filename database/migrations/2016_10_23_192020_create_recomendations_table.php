@@ -27,6 +27,7 @@ class CreateRecomendationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url');
+            $table->text('details');
         });
 
         Schema::create('rights', function (Blueprint $table) {
