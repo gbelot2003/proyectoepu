@@ -19,6 +19,7 @@
 <div class="container">
     @include('partials._message')
     <div class="row">
+        @yield('breadcrumb')
         @yield('content')
     </div>
 </div>
