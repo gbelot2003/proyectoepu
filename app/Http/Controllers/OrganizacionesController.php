@@ -18,7 +18,7 @@ class OrganizacionesController extends Controller
     public function index()
     {
         $items = Organizacion::paginate(15);
-        return View('admin.organizaciones.index', compact('items'));
+        return View('material.admin.organizaciones.index', compact('items'));
     }
 
     /**
@@ -28,7 +28,7 @@ class OrganizacionesController extends Controller
      */
     public function create()
     {
-        return View('admin.organizaciones.create');
+        return View('material.admin.organizaciones.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class OrganizacionesController extends Controller
     public function edit($id)
     {
         $organizacion = Organizacion::findOrFail($id);
-        return View('admin.organizaciones.edit', compact('organizacion'));
+        return View('material.admin.organizaciones.edit', compact('organizacion'));
     }
 
     /**
@@ -91,5 +91,18 @@ class OrganizacionesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request){
+        $query = Organizacion::orderBy('id', 'DESC');
+
+        if(!$request->has('name')){
+            return redirect()->back();
+        }
+        $name = $request->input('name');
+        $query->where('name', 'LIKE' , '%' . $name . '%');
+        $items = $query->paginate();
+
+        return View('material.admin.organizaciones.index', compact('items'));
     }
 }

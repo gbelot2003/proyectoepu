@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col s12">
             <h3>Usuarios</h3>
-            {!! Form::open(['action' => 'AdminRecomendacionesController@search']) !!}
+            {!! Form::open(['action' => 'UserController@search']) !!}
             <div class="input-field">
                 <input type="text" name="name" id="search">
                 <label for="search" >Busqueda</label>
@@ -50,7 +50,7 @@
             </table>
         </div>
         <div class="col s12">
-            {{ $users->links() }}
+            @include('pagination.default', ['paginator' => $users])
         </div>
 
     </div>

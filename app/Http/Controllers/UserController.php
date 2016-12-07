@@ -116,4 +116,17 @@ class UserController extends Controller
     {
         //
     }
+
+    public function search(Request $request){
+        $query = User::orderBy('id', 'DESC');
+
+        if(!$request->has('name')){
+            return redirect()->back();
+        }
+        $name = $request->input('name');
+        $query->where('name', 'LIKE' , '%' . $name . '%');
+        $users = $query->paginate();
+
+        return View('material.admin.users.index', compact('users'));
+    }
 }
