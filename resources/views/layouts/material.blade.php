@@ -19,11 +19,6 @@
 <div class="container">
     @include('partials._message')
     <div class="row">
-        <nav class="deep-purple lighten-5">
-            <div class="nav-wrapper">
-                @yield('breadcrumb')
-             </div>
-         </nav>   
         @yield('content')
     </div>
 </div>
