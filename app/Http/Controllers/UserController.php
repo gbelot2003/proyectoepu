@@ -20,7 +20,7 @@ class UserController extends Controller
     {
 
         $users = \App\User::paginate(15);
-        return View('admin.users.index', compact('users'));
+        return View('material.admin.users.index', compact('users'));
     }
 
     /**
@@ -36,7 +36,7 @@ class UserController extends Controller
             1 => 'Activo',
             2 => 'Desactivado'
         ];
-        return View('admin.users.create', compact('organiza', 'roles', 'estado'));
+        return View('material.admin.users.create', compact('organiza', 'roles', 'estado'));
     }
 
     /**
@@ -76,7 +76,7 @@ class UserController extends Controller
             1 => 'Activo',
             2 => 'Desactivado'
         ];
-        return View('admin.users.edit', compact('user', 'roles', 'organiza', 'estado'));
+        return View('material.admin.users.edit', compact('user', 'roles', 'organiza', 'estado'));
 
     }
 

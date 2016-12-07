@@ -31,11 +31,12 @@ class UserFormRequest extends Request
             'empresa_id' => 'required|integer',
             'userstatus_id' => 'required|integer'
         ];
+
         $edit = [
             'email' => 'required|email',
             'name' => 'required',
         ];
-        if($this->method == 'PUT'){
+        if($this->method == 'PATCH'){
             return $edit;
         } else {
             return $create;

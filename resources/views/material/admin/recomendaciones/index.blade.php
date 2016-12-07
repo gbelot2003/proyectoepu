@@ -8,7 +8,7 @@
             {!! Form::open(['action' => 'AdminRecomendacionesController@search']) !!}
                 <div class="input-field">
                     <input type="text" name="name" id="search">
-                    <label for="search" >Search</label>
+                    <label for="search" >Busqueda</label>
                 </div>
             </form>
         </div>
