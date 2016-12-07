@@ -19,7 +19,11 @@
 <div class="container">
     @include('partials._message')
     <div class="row">
-        @yield('breadcrumb')
+        <nav>
+            <div class="nav-wrapper">
+                @yield('breadcrumb')
+             </div>
+         </nav>   
         @yield('content')
     </div>
 </div>
