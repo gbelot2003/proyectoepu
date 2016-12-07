@@ -1,5 +1,11 @@
 @extends('layouts.material')
 
+@section('breadcrumb')
+      <div class="col s12">
+        <a href="#!" class="breadcrumb">Dashboard</a>
+      </div>
+@stop
+
 @section('content')
     <div class="row">
         <div class="col m12">
