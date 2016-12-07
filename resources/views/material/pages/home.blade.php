@@ -42,7 +42,7 @@
                         <h5>Ultimas Calificaciones Periodo 1</h5>
                         <div class="collection">
                             @foreach($califica as $item)
-                                    <a href="/recomendaciones/{{ $item->recomendacion->id }}" class="collection-item"><span class="badge red-text">{{ $item->calificacion }} Pts.</span>{{ $item->recomendacion->name }}</a>
+                                    <a href="/recomendaciones/show/{{ $item->recomendacion->id }}" class="collection-item"><span class="badge red-text">{{ $item->calificacion }} Pts.</span>{{ $item->recomendacion->name }}</a>
                             @endforeach
                         </div>
 
