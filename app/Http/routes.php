@@ -29,3 +29,4 @@ Route::get('recomendaciones', 'RecomendationController@index');
 Route::get('recomendaciones/show/{id}', 'RecomendationController@show');
 Route::get('api/paises/listado/{name?}', 'CountryController@listado');
 Route::post('recomendaciones', 'RecomendationController@search');
+Route::post('admin/recomendaciones', 'AdminRecomendacionesController@search');

@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col s12">
             <h3>Recomendaciones</h3>
-            <form class="">
-                <div class="input-field has-feedback">
-                    <input type="text" class="form-control" name="search" id="search">
-                    <label for="search" class="sr-only">Search</label>
+            {!! Form::open(['action' => 'AdminRecomendacionesController@search']) !!}
+                <div class="input-field">
+                    <input type="text" name="name" id="search">
+                    <label for="search" >Search</label>
                 </div>
             </form>
         </div>

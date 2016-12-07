@@ -51,16 +51,6 @@ class AdminRecomendacionesController extends Controller
         return redirect('admin/recomendaciones');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -95,17 +85,6 @@ class AdminRecomendacionesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    /**
      * @param Recomendation $recom
      * @param array $institution
      * @param array $derechos
@@ -126,6 +105,19 @@ class AdminRecomendacionesController extends Controller
         return $recomendacion;
     }
 
+    public function search(Request $request)
+    {
+        $query = Recomendation::orderBy('id', 'DESC');
+
+        if(!$request->has('name')){
+            return redirect()->back();
+        }
+        $name = $request->input('name');
+        $query->where('name', 'LIKE' , '%' . $name . '%');
+        $recom = $query->paginate();
+
+        return View('material.admin.recomendaciones.index', compact('recom'));
+    }
 
 
 }
