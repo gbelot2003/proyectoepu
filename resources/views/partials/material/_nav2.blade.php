@@ -77,8 +77,8 @@
                     </nav>
                 </div>
                 <div id="mainLogo-wrap">
-                    <a href="/" id="mainLogo"><img src="/images/logo1.svg" width="320" height="29" alt="Plataform EPU"></a>
-                    <a href="/" id="mainLogo-small"><img src=/images/logo1.svg" width="103" height="29" alt="Plataforma EPU"></a>
+                    <a href="/" id="mainLogo"><img src="/images/logo3.svg" width="320" height="29" alt="Plataform EPU"></a>
+                    <a href="/" id="mainLogo-small"><img src=/images/logo3.svg" width="103" height="29" alt="Plataforma EPU"></a>
                 </div>
                 <div class="user-links right hide-on-med-and-down">
                     @if (Auth::guest())
@@ -111,6 +111,7 @@
                     <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
                     <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
                     <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
+                    <li><a href="{{ url('#') }}">Estadisticas</a></li>
                 </ul>
             </div>
         </nav>

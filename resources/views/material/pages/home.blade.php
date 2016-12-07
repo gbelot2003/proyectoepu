@@ -27,6 +27,11 @@
                         <a href="#!" class="collection-item"><span class="badge">
                                 {{ Auth::user()->organizacion->name }}
                             </span>Organización</a>
+
+                        <a href="#!" class="collection-item"><span class="badge">
+                                <span class="blue-text" style="font-style: italic">01/01/2017</span> al
+                                <span class="green-text" style="font-style: italic">01/03/2017</span>
+                            </span>Período actual</a>
                     </div>
 
                 </div>
@@ -34,10 +39,10 @@
                     <h4>Benvenid@ <span>{{ Auth::user()->name }}</span></h4>
                     @if(Auth::user()->hasRole(['super', 'admin', 'organiza']))
                         <hr>
-                        <h5>Ultimas Calificaciones</h5>
+                        <h5>Ultimas Calificaciones Periodo 1</h5>
                         <div class="collection">
                             @foreach($califica as $item)
-                                    <a href="#!" class="collection-item"><span class="badge red-text">{{ $item->calificacion }}%</span>{{ $item->recomendacion->name }}</a>
+                                    <a href="#!" class="collection-item"><span class="badge red-text">{{ $item->calificacion }} Pts.</span>{{ $item->recomendacion->name }}</a>
                             @endforeach
                         </div>
 

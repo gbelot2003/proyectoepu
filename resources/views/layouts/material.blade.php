@@ -13,6 +13,9 @@
 <body>
 <!-- Dropdown Structure -->
 @include('partials.material._nav2')
+<div id="image-portada">
+    @yield('img_portada')
+</div>
 <div class="container">
     @include('partials._message')
     <div class="row">
