@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    {!! Form::open(array('route' => array('recomendaciones.califecaciones.store'), 'files' => 'true')) !!}
+    {!! Form::model($calificacion, array('route' => array('recomendaciones.califecaciones.update', $calificacion->id), 'method' => 'patch', 'files' => 'true')) !!}
 
     {!! Form::hidden('recomendacion_id', $recom->id) !!}
 

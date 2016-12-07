@@ -19,6 +19,11 @@ class CalificacionController extends Controller
     {
 
         $user = Auth::user()->id;
+
+        /**
+         * TODO: Agregar espacio de tiempos en donde se hara la busqueda
+         *
+         */
         $calificaciones = Calificacion::where('user_id', '=', $user)->where('recomendacion_id', '=', $id)->get();
         if($calificaciones->count()){
             flash('Ya has calificado esta recomendación en este periodo', 'info');
@@ -58,7 +63,6 @@ class CalificacionController extends Controller
         $request['documento']->move(base_path() . '/public/documents/', $document);
         Calificacion::create($request->all());
         return redirect('recomendaciones');
-
     }
 
     /**
@@ -81,6 +85,14 @@ class CalificacionController extends Controller
     public function edit($id)
     {
         $calificacion = Calificacion::findOrFail($id);
+
+        if(!Auth::user()->hasRole(['super', 'admin'])){
+            if($calificacion->user_id =! Auth::user()->id){
+                flash('Esta entrada no fue creada por tu perfil', 'info');
+                return redirect()->back();
+            }
+        }
+
         $recom = Recomendation::findOrFail($id);
 
         $califica = [
@@ -98,7 +110,18 @@ class CalificacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $calificacion = Calificacion::findOrFail($id);
+
+        $request['user_id'] = Auth::id();
+        if($request->input('documento')){
+            $document = $request['documento']->getClientOriginalname();
+            $request['documento_url'] = $document;
+            $request['documento']->move(base_path() . '/public/documents/', $document);
+        }
+
+        $calificacion->update($request->all());
+
+        return redirect('recomendaciones');
     }
 
 }

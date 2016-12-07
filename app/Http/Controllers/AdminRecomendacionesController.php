@@ -20,8 +20,8 @@ class AdminRecomendacionesController extends Controller
      */
     public function index()
     {
-        $recom = Recomendation::orderBy('id', 'DESC')->paginate(10);
-        return View('admin.recomendaciones.index', compact('recom'));
+        $recom = Recomendation::orderBy('id', 'DESC')->paginate(8);
+        return View('material.admin.recomendaciones.index', compact('recom'));
     }
 
     /**
@@ -34,7 +34,7 @@ class AdminRecomendacionesController extends Controller
         $country = Country::lists('name', 'id');
         $instit = Institution::lists('name', 'id');
         $right = Right::lists('name', 'id');
-        return View('admin.recomendaciones.create', compact('rec', 'country', 'instit', 'right'));
+        return View('material.admin.recomendaciones.create', compact('rec', 'country', 'instit', 'right'));
     }
 
     /**
@@ -74,7 +74,7 @@ class AdminRecomendacionesController extends Controller
         $country = Country::lists('name', 'id');
         $instit = Institution::lists('name', 'id');
         $right = Right::lists('name', 'id');
-        return View('admin.recomendaciones.edit', compact('recomendation', 'country', 'instit', 'right'));
+        return View('material.admin.recomendaciones.edit', compact('recomendation', 'country', 'instit', 'right'));
     }
 
     /**
