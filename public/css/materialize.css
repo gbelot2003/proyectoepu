@@ -6952,13 +6952,4 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     left: auto;
     right: auto; } }
 
-#header #nav {
-  background: transparent;
-  box-shadow: none;
-  color: inherit;
-  position: relative;
-  margin-top: 10px;
-  height: 36px;
-  line-height: normal; }
-
 /*# sourceMappingURL=materialize.css.map */

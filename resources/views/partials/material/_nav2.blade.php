@@ -1,3 +1,30 @@
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="{{ url('/') }}">Inicio</a></li>
+    <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
+    <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
+    <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
+    @if (!Auth::guest())
+        @if(Auth::user()->hasRole(['super', 'admin', 'editor']))
+            <li role="separator" class="divider"></li>
+            <li><a href="{{ route('admin.recomendaciones.index') }}">Articulos</a></li>
+            <li><a href="{{ route('admin.organizaciones.index') }}"> Organizaciones</a></li>
+            <li><a href="{{ route('admin.instituciones.index') }}"> Instituciones</a></li>
+            <li><a href="{{ route('admin.organizaciones.index') }}"> Documentos</a></li>
+            <li role="separator" class="divider"></li>
+
+        @endif
+
+        @if(Auth::user()->hasRole(['super', 'admin']))
+            <li><a href="{{ route('admin.recomendaciones.index') }}">Recomendaciones</a></li>
+            <li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
+        @endif
+
+    @endif
+    <li role="separator" class="divider"></li>
+
+    <li><a href="{{ url('/logout') }}">Logout</a></li>
+</ul>
+
 @if (Auth::guest())
     <ul id="slide-out" class="side-nav">
         <li><a href="{{ url('/') }}">Inicio</a></li>
@@ -50,32 +77,42 @@
                     </nav>
                 </div>
                 <div id="mainLogo-wrap">
-                    <a href="/" id="mainLogo"><img src="https://static.artofwhere.net/img/logo.svg" width="320" height="29" alt="Art of Where"></a>
-                    <a href="/" id="mainLogo-small"><img src="https://static.artofwhere.net/img/logo-small.svg" width="103" height="29" alt="Art of Where"></a>
+                    <a href="/" id="mainLogo"><img src="/images/logo1.svg" width="320" height="29" alt="Plataform EPU"></a>
+                    <a href="/" id="mainLogo-small"><img src=/images/logo1.svg" width="103" height="29" alt="Plataforma EPU"></a>
                 </div>
-                <div class="user-links right">
+                <div class="user-links right hide-on-med-and-down">
+                    @if (Auth::guest())
 
-                    <span class="login-link">
-                        <a href="login" class="waves-effect btn-flat small-btn dialog-trigger">Login</a>
-                    </span>
-                    <span class="login-link">
-                        <a href="register" class="waves-effect btn-flat small-btn">Sign up</a>
-                    </span>
+                        <span class="login-link">
+                            <a href="login" class="waves-effect btn-flat small-btn dialog-trigger">Login</a>
+                        </span>
+                        <span class="login-link">
+                            <a href="register" class="waves-effect btn-flat small-btn">Registrarse</a>
+                        </span>
+                    @else
+                            <!-- Dropdown Trigger -->
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
+                    @endif
+
+
                 </div>
-            </div>
-            <div class="col s12">
-                <br>
-                <nav id="nav" class="">
-                            <ul class="left hide-on-med-and-down">
-                                <li><a href="{{ url('/') }}">Inicio</a></li>
-                                <li><a href="#">Noticias</a></li>
-                                <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
-                                <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
-                                <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
-                            </ul>
-                </nav>
+
             </div>
         </div>
     </header>
-    <hr>
+
+    <div class="col s12 hide-on-med-and-down">
+        <br>
+        <nav id="nav" class="blue accent-2">
+            <div class="container">
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="{{ url('/') }}">Inicio</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
+                    <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
+                    <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </div>
