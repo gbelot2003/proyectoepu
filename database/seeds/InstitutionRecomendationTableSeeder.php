@@ -27,6 +27,66 @@ class InstitutionRecomendationTableSeeder extends Seeder
                 'institution_id' => 1,
                 'recomendation_id' => 1,
             ),
+            2 => 
+            array (
+                'institution_id' => 1,
+                'recomendation_id' => 4,
+            ),
+            3 => 
+            array (
+                'institution_id' => 1,
+                'recomendation_id' => 3,
+            ),
+            4 => 
+            array (
+                'institution_id' => 3,
+                'recomendation_id' => 2,
+            ),
+            5 => 
+            array (
+                'institution_id' => 3,
+                'recomendation_id' => 3,
+            ),
+            6 => 
+            array (
+                'institution_id' => 3,
+                'recomendation_id' => 4,
+            ),
+            7 => 
+            array (
+                'institution_id' => 2,
+                'recomendation_id' => 3,
+            ),
+            8 => 
+            array (
+                'institution_id' => 1,
+                'recomendation_id' => 5,
+            ),
+            9 => 
+            array (
+                'institution_id' => 3,
+                'recomendation_id' => 6,
+            ),
+            10 => 
+            array (
+                'institution_id' => 2,
+                'recomendation_id' => 7,
+            ),
+            11 => 
+            array (
+                'institution_id' => 3,
+                'recomendation_id' => 8,
+            ),
+            12 => 
+            array (
+                'institution_id' => 2,
+                'recomendation_id' => 9,
+            ),
+            13 => 
+            array (
+                'institution_id' => 2,
+                'recomendation_id' => 10,
+            ),
         ));
         
         

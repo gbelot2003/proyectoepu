@@ -19,6 +19,7 @@ class CreateCalificacionsTable extends Migration
             $table->integer('calificacion')->unsigned();
             $table->text('details');
             $table->integer('user_id')->unsigned()->index();
+            $table->boolean('status');
             $table->timestamps();
         });
     }
