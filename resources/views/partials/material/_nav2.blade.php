@@ -1,5 +1,5 @@
 <ul id="dropdown1" class="dropdown-content">
-    @if (!Auth::guest())
+    @if (Auth::guest())
     <li><a href="{{ url('/') }}">Inicio</a></li>
     @else
     <li><a href="{{ url('/home') }}">Dashboard</a></li>
