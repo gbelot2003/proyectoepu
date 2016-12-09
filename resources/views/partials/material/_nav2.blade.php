@@ -1,5 +1,9 @@
 <ul id="dropdown1" class="dropdown-content">
+    @if (!Auth::guest())
     <li><a href="{{ url('/') }}">Inicio</a></li>
+    @else
+    <li><a href="{{ url('/home') }}">Dashboard</a></li>
+    @endif
     <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
     <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
     <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
