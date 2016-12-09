@@ -19,9 +19,11 @@
                         </a>
 
                         <a href="#!" class="collection-item"><span class="badge">
+                        @if(Auth()->user()->roles)
                                 @foreach(Auth()->user()->roles as $rol)
                                     {{ $rol->name }}
                                 @endforeach
+                        @endif        
                             </span>
                             Permiso</a>
                         <a href="#!" class="collection-item"><span class="badge">
