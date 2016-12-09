@@ -27,7 +27,9 @@
                             </span>
                             Permiso</a>
                         <a href="#!" class="collection-item"><span class="badge">
-                              
+                              @if(Auth::user()->organizacion)
+ -                                {{ Auth::user()->organizacion->name }}
+ -                            @endif 
                             </span>Organización</a>
 
                         <a href="#!" class="collection-item"><span class="badge">
