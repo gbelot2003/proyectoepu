@@ -11,18 +11,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
         $this->call('RolesTableSeeder');
         $this->call('InstitutionsTableSeeder');
         $this->call('CountriesTableSeeder');
         $this->call('TypeofrightsTableSeeder');
         $this->call('RightsTableSeeder');
-        $this->call('RecomendationsTableSeeder');
-        $this->call('InstitutionRecomendationTableSeeder');
-        $this->call('UsersTableSeeder');
-        $this->call('RecomendationRightTableSeeder');
+        $this->call('TypeofrecomendationsTableSeeder');
+        //$this->call('RecomendationsTableSeeder');
+        //$this->call('InstitutionRecomendationTableSeeder');
+        //$this->call('RecomendationRightTableSeeder');
         $this->call('OrganizacionsTableSeeder');
         $this->call('RoleUserTableSeeder');
-        $this->call('CalificacionsTableSeeder');
+        //$this->call('CalificacionsTableSeeder');
     }
 }

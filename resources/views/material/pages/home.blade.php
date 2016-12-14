@@ -43,13 +43,16 @@
                     <h4>Benvenid@ <span>{{ Auth::user()->name }}</span></h4>
                     @if(Auth::user()->hasRole(['super', 'admin', 'organiza']))
                         <hr>
-                        <h5>Ultimas Calificaciones Periodo 1</h5>
-                        <div class="collection">
-                            @foreach($califica as $item)
-                                    <a href="/recomendaciones/show/{{ $item->recomendacion->id }}" class="collection-item"><span class="badge red-text">{{ $item->calificacion }} Pts.</span>{{ $item->recomendacion->name }}</a>
-                            @endforeach
-                        </div>
-
+                        @if($califica->count())
+                            <h5>Ultimas Calificaciones Periodo 1</h5>
+                            <div class="collection">
+                                @foreach($califica as $item)
+                                        <a href="/recomendaciones/show/{{ $item->recomendacion->id }}" class="collection-item"><span class="badge red-text">{{ $item->calificacion }} Pts.</span>{{ $item->recomendacion->name }}</a>
+                                @endforeach
+                            </div>
+                        @else
+                            <h4>No has calificado ninguna recomendación </h4>
+                        @endif
                     @endif
                 </div>
             </div>

@@ -7,6 +7,7 @@ use App\Http\Requests\RecomendacionesRequest;
 use App\Institution;
 use App\Recomendation;
 use App\Right;
+use App\Typeofrecomendations;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -41,7 +42,8 @@ class AdminRecomendacionesController extends Controller
         $country = Country::lists('name', 'id');
         $instit = Institution::lists('name', 'id');
         $right = Right::lists('name', 'id');
-        return View('material.admin.recomendaciones.create', compact('rec', 'country', 'instit', 'right'));
+        $trec = Typeofrecomendations::lists('name', 'id');
+        return View('material.admin.recomendaciones.create', compact('rec', 'country', 'instit', 'right', 'trec'));
     }
 
     /**
@@ -52,10 +54,18 @@ class AdminRecomendacionesController extends Controller
      */
     public function store(RecomendacionesRequest $request)
     {
-        $recomendacion = $this->createRecomendacion($request);
-        $this->synckRecom($recomendacion, $request->input('institution_list'), $request->input('derechos_list'));
+        $recomendacion = Recomendation::create($request->all());
+
+        if($request->has('institution_list')):
+            $this->synckRecom($recomendacion, $request->input('institution_list'));
+        endif;
+
+        if($request->has('derechos_list')):
+            $this->synckDerechos($recomendacion, $request->input('derechos_list'));
+        endif;
+
         flash('La recomendación a sido creada', 'info');
-        return redirect('admin/recomendaciones');
+        return redirect()->to('material.admin.recomendaciones.index');
     }
 
 
@@ -71,7 +81,8 @@ class AdminRecomendacionesController extends Controller
         $country = Country::lists('name', 'id');
         $instit = Institution::lists('name', 'id');
         $right = Right::lists('name', 'id');
-        return View('material.admin.recomendaciones.edit', compact('recomendation', 'country', 'instit', 'right'));
+        $trec = Typeofrecomendations::lists('name', 'id');
+        return View('material.admin.recomendaciones.edit', compact('recomendation', 'country', 'instit', 'right', 'trec'));
     }
 
     /**
@@ -84,7 +95,15 @@ class AdminRecomendacionesController extends Controller
     public function update(RecomendacionesRequest $request, $id)
     {
         $recom = Recomendation::findOrFail($id);
-        $this->synckRecom($recom, $request->input('institution_list'), $request->input('derechos_list'));
+
+        if($request->has('institution_list')):
+            $this->synckRecom($recomendacion, $request->input('institution_list'));
+        endif;
+
+        if($request->has('derechos_list')):
+            $this->synckDerechos($recomendacion, $request->input('derechos_list'));
+        endif;
+
         $recom->update($request->all());
         flash('La recomendación a sido editada', 'info');
         return redirect('admin/recomendaciones');
@@ -96,20 +115,18 @@ class AdminRecomendacionesController extends Controller
      * @param array $institution
      * @param array $derechos
      */
-    public function synckRecom(Recomendation $recom, array $institution, array $derechos)
+    public function synckRecom(Recomendation $recom, array $institution)
     {
         $recom->institutions()->sync($institution);
-        $recom->derechos()->sync($derechos);
     }
 
     /**
-     * @param RecomendacionesRequest|Request $request
-     * @return static
+     * @param Recomendation $recom
+     * @param array $derechos
      */
-    public function createRecomendacion(RecomendacionesRequest $request)
+    public function synckDerechos(Recomendation $recom, array $derechos)
     {
-        $recomendacion = Recomendation::create($request->all());
-        return $recomendacion;
+        $recom->derechos()->sync($derechos);
     }
 
     public function search(Request $request)

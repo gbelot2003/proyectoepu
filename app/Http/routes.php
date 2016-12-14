@@ -34,7 +34,7 @@ Route::get('organizaciones', 'PagesController@organizaciones');
 
 
 Route::post('recomendaciones', 'RecomendationController@search');
-Route::post('admin/recomendaciones', 'AdminRecomendacionesController@search');
+Route::post('admin/recomendaciones/search', 'AdminRecomendacionesController@search');
 Route::post('admin/users', 'UserController@search');
 Route::post('admin/users', 'OrganizacionesController@search');
 

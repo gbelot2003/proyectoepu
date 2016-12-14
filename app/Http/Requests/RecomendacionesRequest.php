@@ -26,7 +26,7 @@ class RecomendacionesRequest extends Request
         return [
             'name' => 'required|string',
             'country_id' => 'required',
-            'institution_list'  => 'required|array|min:1',
+            'trecomendacion_list'  => 'required|array|min:1',
             'derechos_list'  => 'required|array|min:1'
         ];
     }

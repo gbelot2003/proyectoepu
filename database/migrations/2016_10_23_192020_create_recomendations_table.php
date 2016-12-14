@@ -14,11 +14,19 @@ class CreateRecomendationsTable extends Migration
     public function up()
     {
 
+        Schema::create('typeofrecomendations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+
 
         Schema::create('recomendations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('typeofrecomendations_id')->unsigned()->index();
             $table->integer('country_id')->unsigned()->index();
+            $table->string('name');
+            $table->text('details');
             $table->float('total')->default(0);
             $table->timestamps();
         });
@@ -34,8 +42,7 @@ class CreateRecomendationsTable extends Migration
             $table->increments('id');
             $table->integer('typeofright_id')->unsigned()->index();
             $table->string('name');
-                                                                                                                                    });
-
+        });
 
         Schema::create('institution_recomendation', function(Blueprint $table)
         {
@@ -79,6 +86,7 @@ class CreateRecomendationsTable extends Migration
         Schema::dropIfExists('recomendation_right');
         Schema::dropIfExists('institutions');
         Schema::dropIfExists('rights');
+        Schema::dropIfExists('typeofrecomendations');
         Schema::dropIfExists('recomendations');
 
 

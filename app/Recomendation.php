@@ -7,29 +7,60 @@ use Illuminate\Database\Eloquent\Model;
 class Recomendation extends Model
 {
 
+    /**
+     * @var array
+     */
     protected $fillable = ['name', 'country_id'];
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function trecomendaciones()
+    {
+        return $this->belongsTo(Typeofrecomendations::class, 'typeofrecomendations_id', 'id');
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function derechos()
     {
         return $this->belongsToMany(Right::class);
     }
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function institutions()
     {
         return $this->belongsToMany(Institution::class);
     }
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function countries()
     {
         return $this->belongsTo(Country::class, 'country_id', 'id');
     }
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function calificacion()
     {
         return $this->hasMany(Calificacion::class, 'recomendacion_id', 'id');
     }
 
 
+    /**
+     * @return mixed
+     */
     public function getInstitutionListAttribute()
     {
         return $this->institutions->lists('id')->all();
@@ -42,6 +73,14 @@ class Recomendation extends Model
     public function getDerechosListAttribute()
     {
         return $this->derechos->lists('id')->all();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTrecomendacionListAttribute()
+    {
+        return $this->trecomendaciones->lists('id')->all();
     }
 
     /**
@@ -62,6 +101,10 @@ class Recomendation extends Model
         return Calificacion::where('recomendacion_id', '=', $this->id)->get()->sum('calificacion');
     }
 
+
+    /**
+     * @return float|int
+     */
     public function getCaluloAttribute()
     {
         if($this->countCalifica == 0 || $this->SumCalifica == 0){
@@ -73,6 +116,9 @@ class Recomendation extends Model
         }
     }
 
+    /**
+     * @return string
+     */
     public function getCalificaAttribute()
     {
         if($this->calulo < 3 ):
