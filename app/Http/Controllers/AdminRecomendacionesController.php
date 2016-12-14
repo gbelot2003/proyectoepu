@@ -18,7 +18,7 @@ class AdminRecomendacionesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin');
+        //$this->middleware('admin');
     }
 
     /**
@@ -65,7 +65,7 @@ class AdminRecomendacionesController extends Controller
         endif;
 
         flash('La recomendación a sido creada', 'info');
-        return redirect()->to('material.admin.recomendaciones.index');
+        return redirect('/admin/recomendaciones');
     }
 
 
@@ -77,12 +77,12 @@ class AdminRecomendacionesController extends Controller
      */
     public function edit($id)
     {
-        $recomendation = Recomendation::findOrFail($id);
+        $recomendacion = Recomendation::findOrFail($id);
         $country = Country::lists('name', 'id');
         $instit = Institution::lists('name', 'id');
         $right = Right::lists('name', 'id');
         $trec = Typeofrecomendations::lists('name', 'id');
-        return View('material.admin.recomendaciones.edit', compact('recomendation', 'country', 'instit', 'right', 'trec'));
+        return View('material.admin.recomendaciones.edit', compact('recomendacion', 'country', 'instit', 'right', 'trec'));
     }
 
     /**
@@ -94,17 +94,17 @@ class AdminRecomendacionesController extends Controller
      */
     public function update(RecomendacionesRequest $request, $id)
     {
-        $recom = Recomendation::findOrFail($id);
+        $recomendacion = Recomendation::findOrFail($id);
 
         if($request->has('institution_list')):
-            $this->synckRecom($recomendacion, $request->input('institution_list'));
+            $recomendacion->institutions()->sync($request->input('institution_list')  );
         endif;
 
         if($request->has('derechos_list')):
-            $this->synckDerechos($recomendacion, $request->input('derechos_list'));
+            $recomendacion->derechos()->sync($request->input('derechos_list'));
         endif;
 
-        $recom->update($request->all());
+        $recomendacion->update($request->all());
         flash('La recomendación a sido editada', 'info');
         return redirect('admin/recomendaciones');
 
@@ -117,7 +117,7 @@ class AdminRecomendacionesController extends Controller
      */
     public function synckRecom(Recomendation $recom, array $institution)
     {
-        $recom->institutions()->sync($institution);
+        return $recom->institutions()->sync($institution);
     }
 
     /**
@@ -126,7 +126,7 @@ class AdminRecomendacionesController extends Controller
      */
     public function synckDerechos(Recomendation $recom, array $derechos)
     {
-        $recom->derechos()->sync($derechos);
+       return $recom->derechos()->sync($derechos);
     }
 
     public function search(Request $request)

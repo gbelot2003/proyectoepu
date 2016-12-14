@@ -20,6 +20,7 @@
                 <tr>
                     <th>Listado de Recomendaciones</th>
                     <th>País</th>
+                    <th>Fuente</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,14 @@
                     <tr>
                         <td><a href="{{ action('AdminRecomendacionesController@edit', $items->id)  }}">{{ $items->name }}</a></td>
                         <td>{{ $items->countries->name }}</td>
+                        <td>
+                            <ul>
+                            @foreach($items->derechos as $derecho)
+                                <li>{{ $derecho->name }}</li>
+                            @endforeach
+                            </ul>
+                        </td>
+                        <td>{{ $items->trecomendaciones->name }}</td>
                     </tr>
                 @endforeach
                 </tbody>

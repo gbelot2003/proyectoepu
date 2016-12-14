@@ -8,9 +8,9 @@ class Recomendation extends Model
 {
 
     /**
-     * @var array
+     * @var array 3129-
      */
-    protected $fillable = ['name', 'country_id'];
+    protected $fillable = ['name', 'country_id', 'typeofrecomendations_id'];
 
 
     /**

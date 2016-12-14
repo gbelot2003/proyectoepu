@@ -2,7 +2,6 @@
     {!! Form::text('name', null, ['class' => 'validate']) !!}
     <label for="name">Nombre <span class="red-text">*</span></label>
     @if ($errors->has('name')) <span class="red-text">{{ $errors->first('name') }}</span> @endif
-
 </div>
 
 <div class="row">
@@ -20,9 +19,9 @@
     </div>
 
     <div class="col m3 input-field">
-        {!! Form::select('typeofrecomendations_id', $trec, null, ['id' => 'trecomendacion', 'class' => 'validate select2']) !!}
+        {!! Form::select('typeofrecomendations_id', $trec, null, ['id' => 'trecomendacion', 'class' => 'califica validate']) !!}
         <label for="right_list">F. R. <span class="red-text">*</span></label>
-        @if ($errors->has('trecomendacion_list')) <span class="red-text">{{ $errors->first('trecomendacion_list') }}</span> @endif
+        @if ($errors->has('typeofrecomendations_id')) <span class="red-text">{{ $errors->first('typeofrecomendations_id') }}</span> @endif
     </div>
 
     <div class="col m3 input-field">
@@ -43,6 +42,7 @@
 <div class="row">
     <div class="col m12">
         {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
+        <a href="/admin/recomendaciones" class="btn btn-flat">Regresar</a>
     </div>
 </div>
 
