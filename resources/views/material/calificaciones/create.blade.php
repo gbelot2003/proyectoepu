@@ -42,8 +42,7 @@
 
         <div class="col m12">
             <div class="input-field @if ($errors->has('details')) has-error @endif">
-                {!! Form::textarea('details', null, ['class' => 'materialize-textarea validate']) !!}
-                <label for="details">Descripción :</label><br>
+                {!! Form::textarea('details', null, ['class' => 'ckeditor validate']) !!}
             @if ($errors->has('details')) <p class="red-text help-block">{{ $errors->first('details') }}</p> @endif
             </div>
         </div>

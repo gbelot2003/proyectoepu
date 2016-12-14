@@ -50,8 +50,9 @@
                                 {{ $calificacion->calificacion }}
                         </div>
                         <div class="s12 organizacion-body">
-                            <h6 style="font-weight: bold">Descripción y/o resumen de la calificación otorgada</h6>
-                            <p>{{ $calificacion->details }}</p>
+                            <h6 style="font-weight: bold">Descripción de la calificación otorgada</h6>
+                            <hr>
+                            <p>{!! $calificacion->details !!}</p>
                         </div>
                         <div class="organizacion-file col s12">
                             @if (!Auth::guest())
@@ -60,9 +61,10 @@
                                 @endif
                             @endif
 
-
-                            <span style="font-weight: bold">Documento de antecedente :</span>
-                            <a class="" href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a>
+                            @if($calificacion->documento_url)
+                                <span style="font-weight: bold">Documento de antecedente :</span>
+                                <a class="" href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a>
+                            @endif
                         </div>
 
                     </div>

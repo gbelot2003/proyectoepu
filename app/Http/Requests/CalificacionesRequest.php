@@ -26,7 +26,7 @@ class CalificacionesRequest extends Request
         return [
             'recomendacion_id' => 'required|integer',
             'calificacion' => 'required|integer',
-            'documento' => 'required|max:10000|mimes:doc,docx,pdf', //a required, max 10000kb, doc or docx file
+            'documento' => 'max:10000|mimes:doc,docx,pdf', //a required, max 10000kb, doc or docx file
             'details' => 'required|string',
         ];
     }

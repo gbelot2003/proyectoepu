@@ -58,9 +58,13 @@ class CalificacionController extends Controller
     public function store(CalificacionesRequest $request)
     {
         $request['user_id'] = Auth::id();
-        $document = $request['documento']->getClientOriginalname();
-        $request['documento_url'] = $document;
-        $request['documento']->move(base_path() . '/public/documents/', $document);
+
+        if ($request->has('documento')):
+            $document = $request['documento']->getClientOriginalname();
+            $request['documento_url'] = $document;
+            $request['documento']->move(base_path() . '/public/documents/', $document);
+        endif;
+
         Calificacion::create($request->all());
         return redirect('recomendaciones');
     }
@@ -93,7 +97,7 @@ class CalificacionController extends Controller
             }
         }
 
-        $recom = Recomendation::findOrFail($id);
+        $recom = Recomendation::findOrFail($calificacion->recomendacion_id);
 
         $califica = [
             '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
