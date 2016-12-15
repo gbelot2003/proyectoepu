@@ -4,16 +4,14 @@
     @else
     <li><a href="{{ url('/home') }}">Dashboard</a></li>
     @endif
-    <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
-    <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
-    <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
+        <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
+        <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
+        <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
     @if (!Auth::guest())
         @if(Auth::user()->hasRole(['super', 'admin', 'editor']))
             <li role="separator" class="divider"></li>
-            <li><a href="{{ route('admin.recomendaciones.index') }}">Articulos</a></li>
             <li><a href="{{ route('admin.organizaciones.index') }}"> Organizaciones</a></li>
             <li><a href="{{ route('admin.instituciones.index') }}"> Instituciones</a></li>
-            <li><a href="{{ route('admin.organizaciones.index') }}"> Documentos</a></li>
             <li role="separator" class="divider"></li>
 
         @endif
@@ -47,13 +45,12 @@
 @else
     <ul id="slide-out" class="side-nav">
         <li><a href="{{ url('/') }}">Inicio</a></li>
-        <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
-        <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
         <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
+        <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
+        <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
         @if (!Auth::guest())
             @if(Auth::user()->hasRole(['super', 'admin', 'editor']))
                 <li role="separator" class="divider"></li>
-                <li><a href="{{ route('admin.recomendaciones.index') }}">Articulos</a></li>
                 <li><a href="{{ route('admin.organizaciones.index') }}"> Organizaciones</a></li>
                 <li><a href="{{ route('admin.instituciones.index') }}"> Instituciones</a></li>
                 <li><a href="{{ route('admin.organizaciones.index') }}"> Documentos</a></li>
@@ -111,11 +108,10 @@
             <div class="container">
                 <ul class="left hide-on-med-and-down">
                     <li><a href="{{ url('/') }}">Inicio</a></li>
-                    <li><a href="#">Noticias</a></li>
+                    <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
                     <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
                     <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
-                    <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
-                    <li><a href="{{ url('#') }}">Estadisticas</a></li>
+                    {{--<li><a href="{{ url('#') }}">Estadisticas</a></li>--}}
                 </ul>
             </div>
         </nav>
