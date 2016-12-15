@@ -13,15 +13,15 @@
     </div>
 
     <div class="col m3 input-field">
-        {!! Form::select('derechos_list[]', $right, null, ['id' => 'right', 'class' => 'validate', 'multiple']) !!}
-        <label for="right_list">Tipo <span class="red-text">*</span></label>
-        @if ($errors->has('derechos_list')) <span class="red-text">{{ $errors->first('derechos_list') }}</span> @endif
-    </div>
-
-    <div class="col m3 input-field">
         {!! Form::select('typeofrecomendations_id', $trec, null, ['id' => 'trecomendacion', 'class' => 'califica validate']) !!}
         <label for="right_list">F. R. <span class="red-text">*</span></label>
         @if ($errors->has('typeofrecomendations_id')) <span class="red-text">{{ $errors->first('typeofrecomendations_id') }}</span> @endif
+    </div>
+
+    <div class="col m3 input-field">
+        {!! Form::select('derechos_list[]', $right, null, ['id' => 'right', 'class' => 'validate', 'multiple']) !!}
+        <label for="right_list">Tipo <span class="red-text">*</span></label>
+        @if ($errors->has('derechos_list')) <span class="red-text">{{ $errors->first('derechos_list') }}</span> @endif
     </div>
 
     <div class="col m3 input-field">

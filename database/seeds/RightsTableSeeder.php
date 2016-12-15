@@ -161,6 +161,18 @@ class RightsTableSeeder extends Seeder
                 'typeofright_id' => 3,
                 'name' => 'Educación',
             ),
+            24 => 
+            array (
+                'id' => 25,
+                'typeofright_id' => 2,
+                'name' => 'Migracion',
+            ),
+            25 => 
+            array (
+                'id' => 26,
+                'typeofright_id' => 2,
+                'name' => 'Pobreza',
+            ),
         ));
         
         
