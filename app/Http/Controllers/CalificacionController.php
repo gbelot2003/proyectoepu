@@ -59,8 +59,8 @@ class CalificacionController extends Controller
     {
         $request['user_id'] = Auth::id();
 
-        if ($request->has('documento')):
-            $document = $request['documento']->getClientOriginalname();
+        if ($request->hasFile('documento')):
+            $document = $request['documento']->getClientOriginalName();
             $request['documento_url'] = $document;
             $request['documento']->move(base_path() . '/public/documents/', $document);
         endif;
@@ -90,11 +90,9 @@ class CalificacionController extends Controller
     {
         $calificacion = Calificacion::findOrFail($id);
 
-        if(!Auth::user()->hasRole(['super', 'admin'])){
-            if($calificacion->user_id =! Auth::user()->id){
+        if(!Auth::user()->hasRole(['super', 'admin']) && $calificacion->user_id !== Auth::user()->id){
                 flash('Esta entrada no fue creada por tu perfil', 'info');
                 return redirect()->back();
-            }
         }
 
         $recom = Recomendation::findOrFail($calificacion->recomendacion_id);
@@ -112,15 +110,18 @@ class CalificacionController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CalificacionesRequest $request, $id)
     {
+        //dd($request->all());
         $calificacion = Calificacion::findOrFail($id);
 
         $request['user_id'] = Auth::id();
-        if($request->input('documento')){
-            $document = $request['documento']->getClientOriginalname();
+
+        if($request->hasFile('documento')){
+            $document = $request['documento']->getClientOriginalName();
             $request['documento_url'] = $document;
             $request['documento']->move(base_path() . '/public/documents/', $document);
+            unset($request['documento']);
         }
 
         $calificacion->update($request->all());

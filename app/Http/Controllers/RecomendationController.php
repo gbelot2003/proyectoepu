@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Calificacion;
 use App\Country;
 use App\Recomendation;
 use App\Right;
@@ -37,7 +38,8 @@ class RecomendationController extends Controller
     public function show($id)
     {
         $recom = Recomendation::findOrFail($id);
-        return View('material.recomendaciones.show', compact('recom'));
+        $calificaciones = Calificacion::where('recomendacion_id', '=', $id)->paginate(5);
+        return View('material.recomendaciones.show', compact('recom', 'calificaciones'));
     }
 
     /**
