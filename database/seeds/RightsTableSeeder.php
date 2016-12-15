@@ -173,6 +173,12 @@ class RightsTableSeeder extends Seeder
                 'typeofright_id' => 2,
                 'name' => 'Pobreza',
             ),
+            26 =>
+                array (
+                    'id' => 27,
+                    'typeofright_id' => 6,
+                    'name' => 'Libertad de Expresión',
+                ),
         ));
         
         
