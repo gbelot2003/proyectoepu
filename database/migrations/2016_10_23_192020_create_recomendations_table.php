@@ -25,7 +25,7 @@ class CreateRecomendationsTable extends Migration
             $table->increments('id');
             $table->integer('typeofrecomendations_id')->unsigned()->index();
             $table->integer('country_id')->unsigned()->index();
-            $table->string('name');
+            $table->string('name', 450);
             $table->text('details');
             $table->float('total')->default(0);
             $table->timestamps();

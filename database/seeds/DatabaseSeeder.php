@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call('TypeofrightsTableSeeder');
         $this->call('RightsTableSeeder');
         $this->call('TypeofrecomendationsTableSeeder');
-        //$this->call('RecomendationsTableSeeder');
+        $this->call('RecomendationsTableSeeder');
         //$this->call('InstitutionRecomendationTableSeeder');
-        //$this->call('RecomendationRightTableSeeder');
+        $this->call('RecomendationRightTableSeeder');
         $this->call('OrganizacionsTableSeeder');
         $this->call('RoleUserTableSeeder');
         //$this->call('CalificacionsTableSeeder');
