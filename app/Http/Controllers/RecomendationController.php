@@ -7,7 +7,7 @@ use App\Country;
 use App\Recomendation;
 use App\Right;
 use Illuminate\Http\Request;
-
+use App\Typeofrecomendations;
 use App\Http\Requests;
 
 class RecomendationController extends Controller
@@ -24,8 +24,9 @@ class RecomendationController extends Controller
         $recom = Recomendation::orderBy('id', 'DESC')->paginate(9);
         $pais = Country::all();
         $tipo = Right::all();
+        $trec = Typeofrecomendations::all();
         $search = false;
-        return View('material.recomendaciones.index', compact('recom', 'pais', 'tipo', 'search'));
+        return View('material.recomendaciones.index', compact('recom', 'pais', 'tipo', 'trec', 'search'));
     }
 
 
@@ -70,6 +71,11 @@ class RecomendationController extends Controller
     {
         $query = Recomendation::orderBy('id', 'DESC');
 
+        if($request->has('trec')){
+            $tecs = $request->input('trec');
+            $query->where('typeofrecomendations_id', 'LIKE' , '%' . $tecs . '%');
+        }
+
         if($request->has('name')){
             $name = $request->input('name');
             $query->where('name', 'LIKE' , '%' . $name . '%');
@@ -89,10 +95,12 @@ class RecomendationController extends Controller
 
         $recom = $query->get();
 
+        $trec = Typeofrecomendations::all();
         $pais = Country::all();
         $tipo = Right::all();
         $search = true;
-        return View('material.recomendaciones.search', compact('recom', 'pais', 'tipo', 'request', 'search'));
+
+        return View('material.recomendaciones.search', compact('recom', 'pais', 'tipo', 'request', 'trec', 'search'));
     }
 
 }

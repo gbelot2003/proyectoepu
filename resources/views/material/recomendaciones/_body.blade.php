@@ -25,11 +25,20 @@
                                 </tr>
                                 <tr>
                                     <th>Tipo:</th>
-                                    <td>
+                                    <tr>
+                                    <td colspan="2">
                                         @foreach($item->derechos as $type)
                                             <div style="font-size: 0.6rem" class="chip">{{$type->name }}</div>
                                         @endforeach
 
+                                    </td>
+                                </tr>
+
+                                </tr>
+                                <tr>
+                                    <th>Recomendaciones:</th>
+                                    <td>
+                                        <span class="chip green-text">{{ $item->trecomendaciones->name }}</span>
                                     </td>
                                 </tr>
                             </table>
