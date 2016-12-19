@@ -51,13 +51,12 @@
                             <div class="rTableCell"><span class="chip purple lighten-4">{{ $calificacion->calificacion }}</span></div>
                             <div class="rTableCell"><a class="" href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a></div>
                             <div class="rTableCell">
-                                <a href="#">Mas detalles...</a> |
+                                <a href="{{ url('recomendaciones/califecaciones/detail', $calificacion->id) }}">Mas detalles...</a>
                                 @if (!Auth::guest())
                                     @if (Auth::user()->hasRole(['super', 'admin', 'organiza']))
-                                        <a class="" href="{{ action('CalificacionController@edit', $calificacion->id) }}">Editar</a><br>
+                                        | <a class="" href="{{ action('CalificacionController@edit', $calificacion->id) }}">Editar</a><br>
                                     @endif
                                 @endif
-
                             </div>
                         </div>
                     @endforeach

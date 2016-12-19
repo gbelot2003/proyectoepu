@@ -40,13 +40,17 @@ class CalificacionController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the specified calificacion detail.
      *
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function detail($id)
     {
-        //
+        $calificacion = Calificacion::findOrFail($id);
+        $recom = $calificacion->recomendacion;
+
+        return View('material.calificaciones.show', compact('recom', 'calificacion'));
     }
 
     /**
@@ -69,16 +73,7 @@ class CalificacionController extends Controller
         return redirect('recomendaciones');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.

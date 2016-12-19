@@ -24,7 +24,8 @@ Route::resource('admin/calificaciones', 'AdminCalificaciones', ['only' => ['edit
 
 
 Route::get('recomendaciones/califecaciones/{id}', 'CalificacionController@califica');
-Route::resource('recomendaciones/califecaciones', 'CalificacionController');
+Route::get('recomendaciones/califecaciones/detail/{id}', 'CalificacionController@detail');
+Route::resource('recomendaciones/califecaciones', 'CalificacionController', ['only' => ['edit', 'update', 'store']]);
 
 
 Route::get('/home', 'HomeController@index');
