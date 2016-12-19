@@ -89,7 +89,8 @@ class Recomendation extends Model
      */
     public function getCountCalificaAttribute()
     {
-        return Calificacion::where('recomendacion_id', '=', $this->id)->get()->count();
+        return Calificacion::where('recomendacion_id', '=', $this->id)
+                            ->where('status', '=', 1)->get()->count();
     }
 
     /**
@@ -98,7 +99,8 @@ class Recomendation extends Model
      */
     public function getSumCalificaAttribute()
     {
-        return Calificacion::where('recomendacion_id', '=', $this->id)->get()->sum('calificacion');
+        return Calificacion::where('recomendacion_id', '=', $this->id)
+                        ->where('status', '=', 1)->get()->sum('calificacion');
     }
 
 

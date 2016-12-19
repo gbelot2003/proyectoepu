@@ -39,7 +39,8 @@ class RecomendationController extends Controller
     public function show($id)
     {
         $recom = Recomendation::findOrFail($id);
-        $calificaciones = Calificacion::where('recomendacion_id', '=', $id)->paginate(5);
+        $calificaciones = Calificacion::where('recomendacion_id', '=', $id)
+                                        ->where('status', '=', 1)->paginate(5);
         return View('material.recomendaciones.show', compact('recom', 'calificaciones'));
     }
 

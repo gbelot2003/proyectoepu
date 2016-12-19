@@ -20,6 +20,8 @@ Route::resource('admin/users', 'UserController');
 Route::resource('api/recomendaciones', 'ApiRecomendacionesController');
 Route::resource('admin/organizaciones', 'OrganizacionesController');
 Route::resource('admin/instituciones', 'AdminInstitucionController');
+Route::resource('admin/calificaciones', 'AdminCalificaciones', ['only' => ['edit', 'update']]);
+
 
 Route::get('recomendaciones/califecaciones/{id}', 'CalificacionController@califica');
 Route::resource('recomendaciones/califecaciones', 'CalificacionController');

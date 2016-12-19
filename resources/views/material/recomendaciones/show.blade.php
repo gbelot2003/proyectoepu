@@ -65,61 +65,6 @@
             @else
                 <h6 class="blue-text">No se a calificado esta recomendación</h6>
             @endif
-                {{--            @if($calificaciones->count())
-                                <h6 class="bold">Calificaciones Otorgadas en peridodo</h6>
-
-                                <table class="table bordered striped">
-                                    <tr>
-                                        <th>Organización</th>
-                                        <th>Calificación</th>
-                                        <th></th>
-                                    </tr>
-                                        @foreach($calificaciones as $calificacion)
-                                        <tr>
-                                            <td>{{ $calificacion->user->organizacion->name }}</td>
-                                            <td><span class="chip purple lighten-4">{{ $calificacion->calificacion }}</span></td>
-                                        </tr>
-                                        @endforeach
-
-                                </table>
-                            @else
-                                <h6 class="blue-text">No se a calificado esta recomendación</h6>
-                            @endif--}}
-
-
-
-
-{{--                    <div class="calificacion-result col s12">
-                        <div class="row">
-                            <div class="organizacion-name col s6">
-                                <h6>Organización evaluadora: <span style="font-weight: bold">{{ $calificacion->user->organizacion->name }}</span></h6>
-                            </div>
-
-                            <div class="col s6 organizacion-calificacion">
-                                    <h6>Calificación Otorgada <span class="chip">{{ $calificacion->calificacion }}</span></h6>
-                            </div>
-
-                            <div class="s12 organizacion-body">
-                                <h6 class="bold">Detalle de la calificación otorgada</h6>
-                                <p>{!! $calificacion->details !!}</p>
-                            </div>
-
-                            <div class="organizacion-file col s12">
-                                @if (!Auth::guest())
-                                    @if (Auth::user()->hasRole(['super', 'admin', 'organiza']))
-                                        <a class="chip" href="{{ action('CalificacionController@edit', $calificacion->id) }}">Editar</a><br>
-                                    @endif
-                                @endif
-
-                                @if($calificacion->documento_url)
-                                    <span style="font-weight: bold">Documento de antecedente :</span>
-                                    <a class="chips" href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a>
-                                @endif
-                            </div>
-
-                        </div>
-                    </div>--}}
-
         </div>
     </div>
     <div class="row">

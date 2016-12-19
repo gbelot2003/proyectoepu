@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Calificacion extends Model
 {
-    protected $fillable = ['recomendacion_id', 'documento_url', 'calificacion', 'details', 'user_id'];
+    protected $fillable = ['recomendacion_id', 'documento_url', 'calificacion', 'details', 'user_id', 'status'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

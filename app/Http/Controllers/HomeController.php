@@ -26,8 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $califica = Calificacion::where('user_id', '=' , Auth::user()->id)->get();
+        $califica = Calificacion::where('user_id', '=' , Auth::user()->id)->paginate(5);
 
-        return view('material.pages.home', compact('califica'));
+        $acalifica = Calificacion::paginate(5);
+
+        return view('material.pages.home', compact('califica', 'acalifica'));
     }
 }
