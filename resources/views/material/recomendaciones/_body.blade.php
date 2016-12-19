@@ -47,7 +47,6 @@
                     </div>
                     <div class="row">
                         <div class="col m12">
-                            <hr>
                             <a class="btn blue waves-effect waves-light white-text" href="{{ action('RecomendationController@show', $item->id) }}">Ver detalles..</a>
                         </div>
                     </div>

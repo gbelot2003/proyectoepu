@@ -40,8 +40,8 @@
                 <div class="rTable">
                     <div class="rTableRow">
                         <div class="rTableHead"><strong>Organización</strong></div>
-                        <div class="rTableHead"><span style="font-weight: bold;">Calificación</span></div>
-                        <div class="rTableCell"><span style="font-weight: bold;">Documento de Respaldo</span></div>
+                        <div class="rTableHead"><span class="bold">Calificación</span></div>
+                        <div class="rTableCell"><span class="bold">Documento de Respaldo</span></div>
                         <div class="rTableHead">&nbsp;</div>
                     </div>
 
@@ -49,7 +49,7 @@
                         <div class="rTableRow">
                             <div class="rTableCell">{{ $calificacion->user->organizacion->name }}</div>
                             <div class="rTableCell"><span class="chip purple lighten-4">{{ $calificacion->calificacion }}</span></div>
-                            <div class="rTableCell"><a class="" href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a></div>
+                            <div class="rTableCell"><a href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a></div>
                             <div class="rTableCell">
                                 <a href="{{ url('recomendaciones/califecaciones/detail', $calificacion->id) }}">Mas detalles...</a>
                                 @if (!Auth::guest())
