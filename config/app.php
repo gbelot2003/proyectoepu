@@ -161,6 +161,8 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
 
     ],
@@ -212,6 +214,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustServiceProvider::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 
