@@ -78,8 +78,8 @@
                     </nav>
                 </div>
                 <div id="mainLogo-wrap">
-                    <a href="/" id="mainLogo"><img src="/images/logo3.svg" width="320" height="29" alt="Plataform EPU"></a>
-                    <a href="/" id="mainLogo-small"><img src=/images/logo3.svg" width="103" height="29" alt="Plataforma EPU"></a>
+                    <a href="/" id="mainLogo"><img src="/images/logo4.svg" width="320" height="29" alt="Plataform EPU"></a>
+                    <a href="/" id="mainLogo-small"><img src=/images/logo4.svg" width="103" height="29" alt="Plataforma EPU"></a>
                 </div>
                 <div class="user-links right hide-on-med-and-down">
                     @if (Auth::guest())
