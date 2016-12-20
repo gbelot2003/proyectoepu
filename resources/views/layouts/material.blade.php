@@ -18,7 +18,6 @@
 </div>
 <div class="container">
     @include('partials._message')
-    <div class="row">
         @yield('content')
     </div>
 </div>
