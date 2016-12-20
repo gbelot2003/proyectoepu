@@ -1,0 +1,123 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+header{
+  background: rgba(255, 255, 255, 0.5);
+}
+
+
+#header-warper{
+  padding-top: 0.5rem;
+}
+
+#mainLogo{
+  padding-top: 0.5rem;
+  img{
+    width: 390px;height: 45px;
+  }
+}
+
+.user-links {
+  font-size: 0.7rem;
+  line-height: 2rem;
+  .login-link {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    margin-right: 6px;
+    padding-right: 6px;
+  }
+}
+
+.small-btn {
+  height: 26px;
+  line-height: 26px;
+  font-size: 12px;
+  padding: 0 .5rem;
+}
+
+
+.imageback1{
+  background: url("../images/cropped-honduras1.jpg") top center;
+}
+
+.imageback2{
+  background: url("../images/corrupcion.gif") top center;
+}
+
+/**
+Anteriores
+*/
+.rTable {
+  display: table;
+  width: 100%;
+}
+.rTableRow {
+  display: table-row;
+}
+.rTableHeading {
+  display: table-header-group;
+  background-color: #ddd;
+}
+.rTableCell, .rTableHead {
+  display: table-cell;
+  padding: 3px 10px;
+  border: 1px solid #999999;
+}
+.rTableHeading {
+  display: table-header-group;
+  background-color: #ddd;
+  font-weight: bold;
+}
+.rTableFoot {
+  display: table-footer-group;
+  font-weight: bold;
+  background-color: #ddd;
+}
+.rTableBody {
+  display: table-row-group;
+}
+
+
+.calificacion{
+  font-size: 5rem !important;
+  display: block  !important;;
+  text-align: center  !important;;
+}
+
+.recomendacion{
+  padding: 0 0.8rem 0.5rem 0;
+  min-height: 15rem;
+  margin-bottom: 1.8rem !important;
+}
+
+.red {
+  color: red;
+}
+
+.orange{
+  color:orange;
+}
+
+.green {
+  color: green;
+}
+
+.bold{
+  font-weight: bolder;
+}
+
+.organizacion-name, .organizacion-calificacion,
+.organizacion-body, .organizacion-file{
+  padding: 0.5rem !important;
+}
+
+.organizacion-calificacion{
+  padding: 0 0 0 1rem !important;
+}
+
+.organizacion-name{
+  border-right: 1px solid darkgray;
+}
+
+

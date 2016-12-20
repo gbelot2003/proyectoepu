@@ -26857,5 +26857,7 @@ Picker.extend( 'pickadate', DatePicker )
                     draggable: true // Choose whether you can drag to open on touch screens
             }
         );
+
+        $('.carousel.carousel-slider').carousel({full_width: true});
 }());
 //# sourceMappingURL=material.js.map

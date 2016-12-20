@@ -36,7 +36,6 @@ nav {
 }
 
 .header {
-  color: color("materialize-red", "lighten-2");
   font-weight: 300;
 }
 
@@ -55,6 +54,7 @@ nav {
 header, main, footer {
   padding-left: 300px;
 }
+
 .parallax-demo header,
 .parallax-demo main,
 .parallax-demo footer {

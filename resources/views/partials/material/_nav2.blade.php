@@ -66,6 +66,8 @@
         <li><a href="{{ url('/logout') }}">Logout</a></li>
     </ul>
 @endif
+
+
 <div class="header-warp">
     <header id="header" class="container">
         <div class="row no-margin">

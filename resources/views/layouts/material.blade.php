@@ -12,7 +12,7 @@
 
 <body>
 <!-- Dropdown Structure -->
-@include('partials.material._nav2')
+@include('partials.material._nav3')
 <div id="image-portada">
     @yield('img_portada')
 </div>

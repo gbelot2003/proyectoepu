@@ -6894,6 +6894,74 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .select2-container--default .select2-results__option--highlighted[aria-selected], div.tagsinput span.tag {
   background-color: #42A5F5; }
 
+body {
+  margin: 0 !important;
+  padding: 0 !important; }
+
+header {
+  background: rgba(255, 255, 255, 0.5); }
+
+#header-warper {
+  padding-top: 0.5rem; }
+
+#mainLogo {
+  padding-top: 0.5rem; }
+  #mainLogo img {
+    width: 390px;
+    height: 45px; }
+
+.user-links {
+  font-size: 0.7rem;
+  line-height: 2rem; }
+  .user-links .login-link {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    margin-right: 6px;
+    padding-right: 6px; }
+
+.small-btn {
+  height: 26px;
+  line-height: 26px;
+  font-size: 12px;
+  padding: 0 .5rem; }
+
+.imageback1 {
+  background: url("../images/cropped-honduras1.jpg") top center; }
+
+.imageback2 {
+  background: url("../images/corrupcion.gif") top center; }
+
+/**
+Anteriores
+*/
+.rTable {
+  display: table;
+  width: 100%; }
+
+.rTableRow {
+  display: table-row; }
+
+.rTableHeading {
+  display: table-header-group;
+  background-color: #ddd; }
+
+.rTableCell, .rTableHead {
+  display: table-cell;
+  padding: 3px 10px;
+  border: 1px solid #999999; }
+
+.rTableHeading {
+  display: table-header-group;
+  background-color: #ddd;
+  font-weight: bold; }
+
+.rTableFoot {
+  display: table-footer-group;
+  font-weight: bold;
+  background-color: #ddd; }
+
+.rTableBody {
+  display: table-row-group; }
+
 .calificacion {
   font-size: 5rem !important;
   display: block  !important;
@@ -6925,68 +6993,5 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .organizacion-name {
   border-right: 1px solid darkgray; }
-
-#header .button-collapse-wrap {
-  float: left;
-  height: 56px;
-  margin: -16px 0 -16px -10px;
-  padding: 16px 0 16px 10px;
-  overflow: hidden; }
-
-#mainLogo {
-  opacity: 1;
-  position: absolute;
-  transition: opacity .2s; }
-
-#mainLogo-small {
-  opacity: 0;
-  float: left;
-  position: absolute;
-  margin-top: -2px;
-  transition: opacity .2s; }
-
-#header .user-links .login-link {
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  margin-right: 6px;
-  padding-right: 6px; }
-
-#header .user-links a, #header .user-links span {
-  color: inherit; }
-
-@media only screen and (min-width: 993px) {
-  .row .col.l12, .row .l12.card-wrap {
-    width: 100%;
-    margin-left: auto;
-    left: auto;
-    right: auto; } }
-
-.rTable {
-  display: table;
-  width: 100%; }
-
-.rTableRow {
-  display: table-row; }
-
-.rTableHeading {
-  display: table-header-group;
-  background-color: #ddd; }
-
-.rTableCell, .rTableHead {
-  display: table-cell;
-  padding: 3px 10px;
-  border: 1px solid #999999; }
-
-.rTableHeading {
-  display: table-header-group;
-  background-color: #ddd;
-  font-weight: bold; }
-
-.rTableFoot {
-  display: table-footer-group;
-  font-weight: bold;
-  background-color: #ddd; }
-
-.rTableBody {
-  display: table-row-group; }
 
 /*# sourceMappingURL=materialize.css.map */
