@@ -102,7 +102,7 @@
 
     <div class="col s12 hide-on-med-and-down">
         <br>
-        <nav id="nav" class="blue accent-2">
+        <nav id="nav" class="blue-grey darken-3">
             <div class="container">
                 <ul class="left hide-on-med-and-down">
                     <li><a href="{{ url('/') }}">Inicio</a></li>

@@ -4,12 +4,14 @@
 @section('content')
     <div class="row">
         <div class="col m4">
-            <h6>Generales</h6>
-            <div class="collection">
-                <a href="#!" class="collection-item"><span class="badge">{{ $recom->countries->name }}</span>país</a>
-                <a href="#!" class="collection-item"><span class="badge chip blue-text">{{ $recom->CountCalifica }}</span>Numero de calificaciones</a>
-                <a href="#!" class="collection-item"><span class="badge chip {{ $recom->califica }}">{{ round($recom->calulo, 1) }}</span>Total de calificaciones</a>
-            </div>
+
+            <ul class="collection with-header">
+                <li class="collection-header"><h5>Generales</h5></li>
+                <li class="collection-item"><span class="badge">{{ $recom->countries->name }}</span>país</li>
+                <li class="collection-item"><span class="badge">{{ $recom->trecomendaciones->name }}</span>Recomendaciones</li>
+                <li class="collection-item"><span class="badge chip">{{ $recom->CountCalifica }}</span>Numero de calificaciones</li>
+                <li class="collection-item"><span class="badge chip {{ $recom->califica }}">{{ round($recom->calulo, 1) }}</span>Total de calificaciones</li>
+            </ul>
 
             @if($recom->derechos->count())
                 <h6>Tipos de derecho</h6>
@@ -32,7 +34,17 @@
 
 
         <div class="col m8">
-            <h6 class="bold">Calificaciones Otorgadas en peridodo</h6>
+            <div class="row">
+               <div class="col s10 m10">
+                <h6 class="bold">Calificaciones Otorgadas en peridodo</h6>
+               </div>
+               <div class="s2">
+                   <a href="{{ URL::previous() }}" class="btn-floating btn-small waves-effect waves-light blue">
+                       <i class="material-icons">reply</i>
+                   </a>
+
+               </div>
+            </div>
             <h5>{{ $recom->name }}</h5>
             <br>
             @if($calificaciones->count())
@@ -51,7 +63,7 @@
                             <div class="rTableCell"><span class="chip purple lighten-4">{{ $calificacion->calificacion }}</span></div>
                             <div class="rTableCell"><a href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a></div>
                             <div class="rTableCell">
-                                <a href="{{ url('recomendaciones/califecaciones/detail', $calificacion->id) }}">Mas detalles...</a>
+                                <a href="{{ url('recomendaciones/califecaciones/detail', $calificacion->id) }}">Leer...</a>
                                 @if (!Auth::guest())
                                     @if (Auth::user()->hasRole(['super', 'admin', 'organiza']))
                                         | <a class="" href="{{ action('CalificacionController@edit', $calificacion->id) }}">Editar</a><br>
