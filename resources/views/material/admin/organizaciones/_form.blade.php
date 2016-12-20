@@ -5,6 +5,12 @@
 
 </div>
 
+<div class="input-field @if ($errors->has('url')) has-error @endif">
+    {!! Form::text('url', null, ['class' => 'form-control']) !!}
+    <label for="name">URL de Portal</label>
+    @if ($errors->has('url')) <p class="help-block">{{ $errors->first('url') }}</p> @endif
+</div>
+
 <div class="input-field @if ($errors->has('details')) has-error @endif">
     <label for="details">Detalles</label>
     {!! Form::textarea('details', null, ['class' => 'materialize-textarea']) !!}

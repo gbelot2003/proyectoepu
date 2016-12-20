@@ -25,7 +25,7 @@ class PagesController extends Controller
 
     public function organizaciones()
     {
-        $items = Organizacion::orderBy('id', 'DESC')->paginate(10);
+        $items = Organizacion::orderBy('name', 'ASC')->paginate(12);
         return View('material.pages.organizaciones', compact('items'));
     }
 

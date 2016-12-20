@@ -17,7 +17,7 @@ class OrganizacionesController extends Controller
      */
     public function index()
     {
-        $items = Organizacion::paginate(15);
+        $items = Organizacion::OrderBy('updated_at', 'DESC')->paginate(10);
         return View('material.admin.organizaciones.index', compact('items'));
     }
 

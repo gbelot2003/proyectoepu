@@ -30,9 +30,8 @@
 @if (Auth::guest())
     <ul id="slide-out" class="side-nav">
         <li><a href="{{ url('/') }}">Inicio</a></li>
-        <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
-        <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
         <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
+        <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
         <li role="separator" class="divider"></li>
         <li>
             <div>
@@ -47,7 +46,6 @@
         <li><a href="{{ url('/') }}">Inicio</a></li>
         <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
         <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
-        <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
         @if (!Auth::guest())
             @if(Auth::user()->hasRole(['super', 'admin', 'editor']))
                 <li role="separator" class="divider"></li>
@@ -109,7 +107,6 @@
                 <ul class="left hide-on-med-and-down">
                     <li><a href="{{ url('/') }}">Inicio</a></li>
                     <li><a href="{{ url('/recomendaciones') }}">Recomendaciones</a></li>
-                    <li><a href="{{ url('/instituciones') }}">Instituciones</a></li>
                     <li><a href="{{ url('/organizaciones') }}">ONG's Aliadas</a></li>
                     {{--<li><a href="{{ url('#') }}">Estadisticas</a></li>--}}
                 </ul>
