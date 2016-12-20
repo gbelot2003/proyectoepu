@@ -14,7 +14,7 @@
 
 
     <div class="row">
-        <div class="col m12">
+        <div class="col m12 grey lighten-4 center-align">
             @include('pagination.default', ['paginator' => $recom])
         </div>
     </div>

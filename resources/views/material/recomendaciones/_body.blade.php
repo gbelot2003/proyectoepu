@@ -47,7 +47,7 @@
                     </div>
                     <div class="row">
                         <div class="col m12">
-                            <a class="btn blue waves-effect waves-light white-text" href="{{ action('RecomendationController@show', $item->id) }}">Ver detalles..</a>
+                            <a class="btn blue-grey darken-3 waves-effect waves-light white-text" href="{{ action('RecomendationController@show', $item->id) }}">Ver detalles..</a>
                         </div>
                     </div>
                 </div>

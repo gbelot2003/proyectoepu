@@ -1,7 +1,19 @@
 {!! Form::open(['action' => 'RecomendationController@search']) !!}
 
 <div class="row">
-    <div class="input-field col s12 m6">
+
+</div>
+
+<div class="row">
+
+
+    <div class="input-field col s12 m3">
+        <input id="first_name" name="name" type="text" class="validate">
+        <label for="first_name">Busqueda por texto</label>
+    </div>
+
+
+    <div class="input-field col s12 m2">
         <select id="trec" name="trec" class="califica">
             <option value="" disabled selected>Clasificación de Recomendaciones</option>
             @foreach($trec as $item)
@@ -9,14 +21,6 @@
             @endforeach
         </select>
     </div>
-</div>
-
-<div class="row">
-    <div class="input-field col s12 m3">
-        <input id="first_name" name="name" type="text" class="validate">
-        <label for="first_name">Recomendacion</label>
-    </div>
-
 
     <div class="input-field col s12 m2">
         <select id="pais" name="pais" class="select2">
@@ -41,9 +45,9 @@
 <div class="row">
 
     <div class="col m12">
-        <input type="submit" class="btn">
+        <input type="submit" class="btn blue-grey darken-3">
         @if($search === true)
-         <a class="btn" href="/recomendaciones">Reset</a>
+         <a class="btn blue-grey darken-3" href="/recomendaciones">Reset</a>
         @endif
         <hr>
     </div>
