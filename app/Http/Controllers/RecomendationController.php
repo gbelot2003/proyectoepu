@@ -6,6 +6,7 @@ use App\Calificacion;
 use App\Country;
 use App\Recomendation;
 use App\Right;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Typeofrecomendations;
 use App\Http\Requests;
@@ -42,6 +43,18 @@ class RecomendationController extends Controller
         $calificaciones = Calificacion::where('recomendacion_id', '=', $id)
                                         ->where('status', '=', 1)->paginate(5);
         return View('material.recomendaciones.show', compact('recom', 'calificaciones'));
+    }
+
+
+    public function recomendacionespdf($id)
+    {
+        $recom = Recomendation::findOrFail($id);
+        $calificaciones = Calificacion::where('recomendacion_id', '=', $id)
+            ->where('status', '=', 1)->get();
+
+        $pdf = PDF::loadView('pdf.recomendaciones.recomendaciones', compact('recom', 'calificaciones'));
+        return $pdf->download($recom->name .'.pdf');
+
     }
 
     /**

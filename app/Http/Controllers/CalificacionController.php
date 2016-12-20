@@ -6,14 +6,13 @@ use App\Calificacion;
 use App\Http\Requests\CalificacionesRequest;
 use App\Recomendation;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
 class CalificacionController extends Controller
 {
-
-
 
     public function califica($id)
     {
@@ -37,6 +36,18 @@ class CalificacionController extends Controller
             '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
         ];
         return View('material.calificaciones.create', compact('recom', 'califica'));
+    }
+
+    /**
+     * @param $id
+     */
+    public function calificacionpdf($id)
+    {
+        $calificacion = Calificacion::findOrFail($id);
+        $recom = $calificacion->recomendacion;
+
+        $pdf = PDF::loadView('pdf.calificaciones.calificacion', compact('recom', 'calificacion'));
+        return $pdf->download('Detalle - ' . $recom->name .'.pdf');
     }
 
     /**

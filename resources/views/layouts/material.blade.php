@@ -7,7 +7,7 @@
     <link href="{{ asset('css/materialize.css') }}" rel="stylesheet" media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@yield('title', 'Sistema EPU')</title>
+    <title>@yield('title', 'Coalición contra la impunidad')</title>
 </head>
 
 <body>

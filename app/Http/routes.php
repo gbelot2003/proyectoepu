@@ -22,11 +22,9 @@ Route::resource('admin/organizaciones', 'OrganizacionesController');
 Route::resource('admin/instituciones', 'AdminInstitucionController');
 Route::resource('admin/calificaciones', 'AdminCalificaciones', ['only' => ['edit', 'update']]);
 
-
 Route::get('recomendaciones/califecaciones/{id}', 'CalificacionController@califica');
 Route::get('recomendaciones/califecaciones/detail/{id}', 'CalificacionController@detail');
 Route::resource('recomendaciones/califecaciones', 'CalificacionController', ['only' => ['edit', 'update', 'store']]);
-
 
 Route::get('/home', 'HomeController@index');
 Route::get('recomendaciones', 'RecomendationController@index');
@@ -35,9 +33,13 @@ Route::get('api/paises/listado/{name?}', 'CountryController@listado');
 Route::get('instituciones', 'PagesController@instituciones');
 Route::get('organizaciones', 'PagesController@organizaciones');
 
-
 Route::post('recomendaciones', 'RecomendationController@search');
 Route::post('admin/recomendaciones/search', 'AdminRecomendacionesController@search');
 Route::post('admin/users', 'UserController@search');
 Route::post('admin/users', 'OrganizacionesController@search');
 
+/**
+ * PDF Routes
+ */
+Route::get('recomendaciones/pdf/{id}', 'RecomendationController@recomendacionespdf');
+Route::get('calificaciones-detalle/pdf/{id}', 'CalificacionController@calificacionpdf');

@@ -44,10 +44,14 @@
                 </div>
              </div>
             <h5>{{ $recom->name }}</h5>
-
+            <div class=" col m12 right-align">
+                <a href="/calificaciones-detalle/pdf/{{ $calificacion->id }}" class="btn-floating btn-small waves-effect waves-light red darken-4">
+                    <i class="material-icons">picture_as_pdf</i>
+                </a>
+            </div>
             <br>
             <div>
-                <p><span class="bold">Explicación</span></p>
+                <p><span class="bold">Análisis de Calificación</span></p>
                 {!! $calificacion->details !!}
             </div>
         </div>

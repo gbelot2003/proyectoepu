@@ -30,7 +30,10 @@
                     @endforeach
                 </ul>
             @endif
+
+
         </div>
+
 
 
         <div class="col m8">
@@ -46,6 +49,11 @@
                </div>
             </div>
             <h5>{{ $recom->name }}</h5>
+            <div class=" col m12 right-align">
+                <a href="/recomendaciones/pdf/{{ $recom->id }}" class="btn-floating btn-small waves-effect waves-light red darken-4">
+                    <i class="material-icons">picture_as_pdf</i>
+                </a>
+            </div>
             <br>
             @if($calificaciones->count())
                 <h6 class="bold">Calificaciones Otorgadas en peridodo</h6>
@@ -60,8 +68,18 @@
                     @foreach($calificaciones as $calificacion)
                         <div class="rTableRow">
                             <div class="rTableCell">{{ $calificacion->user->organizacion->name }}</div>
+
                             <div class="rTableCell"><span class="chip purple lighten-4">{{ $calificacion->calificacion }}</span></div>
-                            <div class="rTableCell"><a href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a></div>
+
+                            <div class="rTableCell">
+                                @if($calificacion->documento_url)
+                                    <a href="{{ asset('documents') . '/' . $calificacion->documento_url }}">{{ $calificacion->documento_url }}</a>
+                                @else
+                                    N/A
+                                @endif
+
+                            </div>
+
                             <div class="rTableCell">
                                 <a href="{{ url('recomendaciones/califecaciones/detail', $calificacion->id) }}">Leer...</a>
                                 @if (!Auth::guest())
