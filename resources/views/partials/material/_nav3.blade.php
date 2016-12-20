@@ -34,14 +34,13 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col m6">
+                    <div class="col s5 m6">
                         <div id="mainLogo-wrap">
-                            <a href="#!" data-activates="slide-out" class="button-collapse waves-effect"><i class="material-icons black-text">menu</i></a>
                             <a href="/" id="mainLogo"><img src="/images/logo4.svg" alt="Coalición contra la Impunidad"></a>
                         </div>
                     </div>
 
-                    <div class="col m6 user-links right-align hide-on-med-and-down">
+                    <div class="col s6 m6 user-links right-align hide-on-med-and-down">
                         @if (Auth::guest())
 
                             <span class="login-link">
