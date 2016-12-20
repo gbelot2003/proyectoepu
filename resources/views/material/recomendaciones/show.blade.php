@@ -45,16 +45,20 @@
                    <a href="{{ URL::previous() }}" class="btn-floating btn-small waves-effect waves-light blue">
                        <i class="material-icons">reply</i>
                    </a>
-
                </div>
             </div>
             <h5>{{ $recom->name }}</h5>
-            <div class=" col m12 right-align">
-                <a href="/recomendaciones/pdf/{{ $recom->id }}" class="btn-floating btn-small waves-effect waves-light red darken-4">
-                    <i class="material-icons">picture_as_pdf</i>
-                </a>
-            </div>
+
+            @if($calificaciones->count())
+                <div class=" col m12 right-align">
+                    <a href="/recomendaciones/pdf/{{ $recom->id }}" class="btn-floating btn-small waves-effect waves-light red darken-4">
+                        <i class="material-icons">picture_as_pdf</i>
+                    </a>
+                </div>
+            @endif
+
             <br>
+
             @if($calificaciones->count())
                 <h6 class="bold">Calificaciones Otorgadas en peridodo</h6>
                 <div class="rTable">
